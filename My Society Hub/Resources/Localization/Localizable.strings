@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  My Society Hub
+
+  Created by Nitin Sakhare on 19/05/21.
+  
+*/
+
+//Pager Strings
+"memberName" = "Member Features";
+"memberDesc" = "Keep member details in the app only";
+"complaintName" = "Complaint Features";
+"complaintDesc" = "Incase, you observer any suspicious activity that is compromising safety and security of fellow resident, you can notify by raising a complaint";
+"noticeName" = "Notice Management";
+"noticeDesc" = "Get instant notice from the management committee from yur bldg";
+"billName" = "Bill Management";
+"billDesc" = "You can pay your bill from this app";
