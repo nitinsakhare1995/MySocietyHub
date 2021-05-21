@@ -16,6 +16,11 @@
 		87A7EE6F265785BE00562DF8 /* StartAppPagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE6E265785BE00562DF8 /* StartAppPagerModel.swift */; };
 		87A7EE712657871300562DF8 /* Constants+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE702657871300562DF8 /* Constants+Localization.swift */; };
 		87A7EE75265789FB00562DF8 /* Constants+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE74265789FB00562DF8 /* Constants+Images.swift */; };
+		87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE78265793C500562DF8 /* LoginVC.swift */; };
+		87A7EE7B265793D600562DF8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A7EE7A265793D600562DF8 /* Login.storyboard */; };
+		87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE7C2657954600562DF8 /* UIStoryboard+Extensions.swift */; };
+		87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE7F265795AC00562DF8 /* Declaration.swift */; };
+		87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE812657960300562DF8 /* BaseViewController.swift */; };
 		87DE5CB22654F720002FAF59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE5CB12654F720002FAF59 /* AppDelegate.swift */; };
 		87DE5CB42654F720002FAF59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE5CB32654F720002FAF59 /* SceneDelegate.swift */; };
 		87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87DE5CB52654F720002FAF59 /* StartAppPagerVC.swift */; };
@@ -58,6 +63,11 @@
 		87A7EE6E265785BE00562DF8 /* StartAppPagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppPagerModel.swift; sourceTree = "<group>"; };
 		87A7EE702657871300562DF8 /* Constants+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Localization.swift"; sourceTree = "<group>"; };
 		87A7EE74265789FB00562DF8 /* Constants+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Images.swift"; sourceTree = "<group>"; };
+		87A7EE78265793C500562DF8 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		87A7EE7A265793D600562DF8 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		87A7EE7C2657954600562DF8 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		87A7EE7F265795AC00562DF8 /* Declaration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declaration.swift; sourceTree = "<group>"; };
+		87A7EE812657960300562DF8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		87DE5CAE2654F720002FAF59 /* My Society Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Society Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DE5CB12654F720002FAF59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87DE5CB32654F720002FAF59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +168,32 @@
 			path = Localization;
 			sourceTree = "<group>";
 		};
+		87A7EE762657939500562DF8 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				87A7EE77265793AC00562DF8 /* Login */,
+				87DE5CE72654FE52002FAF59 /* StartAppPagerScreen */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		87A7EE77265793AC00562DF8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				87A7EE78265793C500562DF8 /* LoginVC.swift */,
+				87A7EE7A265793D600562DF8 /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		87A7EE7E2657959F00562DF8 /* HelperClass */ = {
+			isa = PBXGroup;
+			children = (
+				87A7EE7F265795AC00562DF8 /* Declaration.swift */,
+			);
+			path = HelperClass;
+			sourceTree = "<group>";
+		};
 		87DE5CA52654F720002FAF59 = {
 			isa = PBXGroup;
 			children = (
@@ -183,15 +219,17 @@
 		87DE5CB02654F720002FAF59 /* My Society Hub */ = {
 			isa = PBXGroup;
 			children = (
+				87A7EE7E2657959F00562DF8 /* HelperClass */,
+				87A7EE762657939500562DF8 /* Modules */,
 				87A7EE6B265784E400562DF8 /* Models */,
 				87A7EE642657845C00562DF8 /* Utils */,
 				87DE5CF1265501B3002FAF59 /* Extensions */,
-				87DE5CE72654FE52002FAF59 /* Main Screen */,
 				87DE5CE12654F852002FAF59 /* Resources */,
 				87DE5CB12654F720002FAF59 /* AppDelegate.swift */,
 				87DE5CB32654F720002FAF59 /* SceneDelegate.swift */,
 				87DE5CBC2654F721002FAF59 /* LaunchScreen.storyboard */,
 				87DE5CBF2654F721002FAF59 /* Info.plist */,
+				87A7EE812657960300562DF8 /* BaseViewController.swift */,
 			);
 			path = "My Society Hub";
 			sourceTree = "<group>";
@@ -223,14 +261,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		87DE5CE72654FE52002FAF59 /* Main Screen */ = {
+		87DE5CE72654FE52002FAF59 /* StartAppPagerScreen */ = {
 			isa = PBXGroup;
 			children = (
 				87DE5CE82654FEEF002FAF59 /* PagerViewCell */,
 				87DE5CB72654F720002FAF59 /* Main.storyboard */,
 				87DE5CB52654F720002FAF59 /* StartAppPagerVC.swift */,
 			);
-			path = "Main Screen";
+			path = StartAppPagerScreen;
 			sourceTree = "<group>";
 		};
 		87DE5CE82654FEEF002FAF59 /* PagerViewCell */ = {
@@ -248,6 +286,7 @@
 				87DE5CF2265501CA002FAF59 /* String+Extension.swift */,
 				87DE5CF4265501D7002FAF59 /* UIColor+Extension.swift */,
 				87A7EE6C265785AB00562DF8 /* UIView+Extension.swift */,
+				87A7EE7C2657954600562DF8 /* UIStoryboard+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +409,7 @@
 			files = (
 				87DE5CF02655002A002FAF59 /* Localizable.strings in Resources */,
 				87A7EE6A265784C100562DF8 /* StartAppPagerCell.xib in Resources */,
+				87A7EE7B265793D600562DF8 /* Login.storyboard in Resources */,
 				87DE5CBE2654F721002FAF59 /* LaunchScreen.storyboard in Resources */,
 				87DE5CBB2654F721002FAF59 /* Assets.xcassets in Resources */,
 				87DE5CB92654F720002FAF59 /* Main.storyboard in Resources */,
@@ -468,13 +508,17 @@
 			files = (
 				87A7EE712657871300562DF8 /* Constants+Localization.swift in Sources */,
 				87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */,
+				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,
 				87DE5CB22654F720002FAF59 /* AppDelegate.swift in Sources */,
 				87A7EE6D265785AB00562DF8 /* UIView+Extension.swift in Sources */,
+				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
+				87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */,
 				87DE5CF5265501D7002FAF59 /* UIColor+Extension.swift in Sources */,
 				87DE5CF3265501CA002FAF59 /* String+Extension.swift in Sources */,
 				87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */,
 				87A7EE6F265785BE00562DF8 /* StartAppPagerModel.swift in Sources */,
+				87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */,
 				87A7EE75265789FB00562DF8 /* Constants+Images.swift in Sources */,
 				87DE5CB42654F720002FAF59 /* SceneDelegate.swift in Sources */,
 			);

@@ -18,15 +18,30 @@ class StartAppPagerVC: UIViewController {
     let itemSpacing = CGFloat(0)
     var itemHeight = CGFloat(312)
     var itemWidth = CGFloat(0)
+    var x = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        registerNib()
+        setupCollectionView()
+        
         setupData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     func setupData(){
-        registerNib()
-        setupCollectionView()
+        
         pagerData.append(PagerScreensModel(name: LocalizedString.memberName, description: LocalizedString.memberDesc, image: Images.memberImage, color: .pagerBlueColor()))
         pagerData.append(PagerScreensModel(name: LocalizedString.complaintName, description: LocalizedString.complaintDesc, image: Images.complaintImage, color: .pagerGreenColor()))
         pagerData.append(PagerScreensModel(name: LocalizedString.noticeName, description: LocalizedString.noticeDesc, image: Images.noticeImage, color: .pagerOrangeColor()))
@@ -35,7 +50,7 @@ class StartAppPagerVC: UIViewController {
             self.setupPageControl()
             self.collectionView.reloadData()
         }
-        setTimer()
+//        setTimer()
     }
     
     func registerNib(){
@@ -47,37 +62,16 @@ class StartAppPagerVC: UIViewController {
         pageControl.numberOfPages = pagerData.count
     }
     
-    func setupCollectionView() {
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        itemHeight = self.view.frame.height
-        itemWidth = self.view.frame.width
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
-        layout.headerReferenceSize = CGSize(width: collectionMargin, height: 0)
-        layout.footerReferenceSize = CGSize(width: collectionMargin, height: 0)
-        layout.minimumLineSpacing = itemSpacing
-        layout.scrollDirection = .horizontal
-        collectionView?.collectionViewLayout = layout
-        collectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
+    
+    @IBAction func btnGetStartedTapped(_ sender: UIButton) {
+        setRootAsLoginScreen()
     }
     
-    func setTimer() {
-        let _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
-    }
-    
-    var x = 1
-    
-    @objc func autoScroll() {
-        if self.x < self.pagerData.count {
-            let indexPath = IndexPath(item: x, section: 0)
-            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            self.pageControl.currentPage = x
-            self.x = self.x + 1
-        } else {
-            self.x = 0
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
-            self.pageControl.currentPage = x
-        }
+    func setRootAsLoginScreen() {
+        let loginVC = LoginVC.instantiate(from: .login)
+        self.navigationController?.viewControllers = [loginVC]
+        windowSceneDelegate?.window?.rootViewController = navigationController
+        windowSceneDelegate?.window?.makeKeyAndVisible()
     }
     
 }
@@ -118,5 +112,38 @@ extension StartAppPagerVC: UICollectionViewDelegate, UICollectionViewDataSource 
         targetContentOffset.pointee = point
     }
     
+}
+
+extension StartAppPagerVC {
     
+    func setupCollectionView() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        itemHeight = self.view.frame.height
+        itemWidth = (UIScreen.main.bounds.width - collectionMargin * 2.0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.headerReferenceSize = CGSize(width: collectionMargin, height: 0)
+        layout.footerReferenceSize = CGSize(width: collectionMargin, height: 0)
+        layout.minimumLineSpacing = itemSpacing
+        layout.scrollDirection = .horizontal
+        collectionView?.collectionViewLayout = layout
+        collectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
+    }
+    
+    func setTimer() {
+        let _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+    }
+    
+    @objc func autoScroll() {
+        if self.x < self.pagerData.count {
+            let indexPath = IndexPath(item: x, section: 0)
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            self.pageControl.currentPage = x
+            self.x = self.x + 1
+        } else {
+            self.x = 0
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .centeredHorizontally, animated: true)
+            self.pageControl.currentPage = x
+        }
+    }
 }
