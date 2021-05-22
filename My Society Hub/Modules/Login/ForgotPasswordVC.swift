@@ -1,13 +1,13 @@
 //
-//  LoginVC.swift
+//  ForgotPasswordVC.swift
 //  My Society Hub
 //
-//  Created by Nitin Sakhare on 21/05/21.
+//  Created by Nitin Sakhare on 22/05/21.
 //
 
 import UIKit
 
-class LoginVC: BaseViewController {
+class ForgotPasswordVC: BaseViewController {
 
     @IBOutlet weak var tiltView: UIView!
     @IBOutlet weak var lblAppName: UILabel!
@@ -28,14 +28,4 @@ class LoginVC: BaseViewController {
         lblAppName.attributedText = appName
 
     }
-    
-
-    @IBAction func btnForgotPasswordTapped(_ sender: UIButton) {
-        let forgotPasswordVC = ChangePasswordVC.instantiate(from: .login)
-        self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
-    }
-    
-    
 }
-
-

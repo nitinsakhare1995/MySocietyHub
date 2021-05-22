@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		298A876DDCBB2D3940D75230 /* Pods_My_Society_HubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7DABD15B477E43A277D72A /* Pods_My_Society_HubTests.framework */; };
 		5F76E99A0C747C69AEB07B47 /* Pods_My_Society_Hub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */; };
+		877F933326596BB100826C36 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933226596BB100826C36 /* ForgotPasswordVC.swift */; };
+		877F933526596E3F00826C36 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933426596E3F00826C36 /* ChangePasswordVC.swift */; };
 		87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE652657847000562DF8 /* Constants+Identifiers.swift */; };
 		87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */; };
 		87A7EE6A265784C100562DF8 /* StartAppPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */; };
@@ -56,6 +58,8 @@
 		0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Society_Hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD5CEB79FADC0A5A51FA144 /* Pods-My Society Hub-My Society HubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; path = "Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		866520D75F47A3D34D7BDACC /* Pods-My Society HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society HubTests.debug.xcconfig"; path = "Target Support Files/Pods-My Society HubTests/Pods-My Society HubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		877F933226596BB100826C36 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		877F933426596E3F00826C36 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
 		87A7EE652657847000562DF8 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
 		87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppPagerCell.swift; sourceTree = "<group>"; };
 		87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartAppPagerCell.xib; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 			children = (
 				87A7EE78265793C500562DF8 /* LoginVC.swift */,
 				87A7EE7A265793D600562DF8 /* Login.storyboard */,
+				877F933226596BB100826C36 /* ForgotPasswordVC.swift */,
+				877F933426596E3F00826C36 /* ChangePasswordVC.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */,
 				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,
 				87DE5CB22654F720002FAF59 /* AppDelegate.swift in Sources */,
+				877F933526596E3F00826C36 /* ChangePasswordVC.swift in Sources */,
 				87A7EE6D265785AB00562DF8 /* UIView+Extension.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
@@ -520,6 +527,7 @@
 				87A7EE6F265785BE00562DF8 /* StartAppPagerModel.swift in Sources */,
 				87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */,
 				87A7EE75265789FB00562DF8 /* Constants+Images.swift in Sources */,
+				877F933326596BB100826C36 /* ForgotPasswordVC.swift in Sources */,
 				87DE5CB42654F720002FAF59 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

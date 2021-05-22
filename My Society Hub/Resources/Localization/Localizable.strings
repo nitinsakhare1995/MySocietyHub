@@ -15,3 +15,7 @@
 "noticeDesc" = "Get instant notice from the management committee from yur bldg";
 "billName" = "Bill Management";
 "billDesc" = "You can pay your bill from this app";
+
+//App name
+"appName" = "My Society Hub";
+

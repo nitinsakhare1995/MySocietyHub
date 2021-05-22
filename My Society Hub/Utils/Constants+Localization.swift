@@ -19,4 +19,7 @@ struct LocalizedString {
     static let billName = "billName".localized()
     static let billDesc = "billDesc".localized()
     
+    //App Name
+    static let appName = "appName".localized()
+    
 }
