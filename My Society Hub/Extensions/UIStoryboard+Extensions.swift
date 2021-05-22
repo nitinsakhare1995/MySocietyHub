@@ -11,6 +11,7 @@ import UIKit
 /// Storyboards
 enum Storyboard: String {
     case login = "Login"
+    case dashboard = "Dashboard"
 }
 
 /// Storyboarded

@@ -9,8 +9,18 @@
 /* Begin PBXBuildFile section */
 		298A876DDCBB2D3940D75230 /* Pods_My_Society_HubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7DABD15B477E43A277D72A /* Pods_My_Society_HubTests.framework */; };
 		5F76E99A0C747C69AEB07B47 /* Pods_My_Society_Hub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */; };
+		8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8779511326597EBA002860F9 /* ImageCollectionCell.swift */; };
+		8779511626597EBA002860F9 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8779511426597EBA002860F9 /* ImageCollectionCell.xib */; };
 		877F933326596BB100826C36 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933226596BB100826C36 /* ForgotPasswordVC.swift */; };
 		877F933526596E3F00826C36 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933426596E3F00826C36 /* ChangePasswordVC.swift */; };
+		877F933826596F2900826C36 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 877F933726596F2900826C36 /* Dashboard.storyboard */; };
+		877F933A26596F3A00826C36 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933926596F3A00826C36 /* DashboardVC.swift */; };
+		877F933C2659713800826C36 /* DashboardTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933B2659713800826C36 /* DashboardTabBarVC.swift */; };
+		877F933E265972EB00826C36 /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F933D265972EB00826C36 /* PagingCollectionViewLayout.swift */; };
+		877F93422659757F00826C36 /* NoticeBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F93402659757F00826C36 /* NoticeBoardCell.swift */; };
+		877F93432659757F00826C36 /* NoticeBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877F93412659757F00826C36 /* NoticeBoardCell.xib */; };
+		877F934626597C8F00826C36 /* OperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F934426597C8F00826C36 /* OperationCell.swift */; };
+		877F934726597C8F00826C36 /* OperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877F934526597C8F00826C36 /* OperationCell.xib */; };
 		87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE652657847000562DF8 /* Constants+Identifiers.swift */; };
 		87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */; };
 		87A7EE6A265784C100562DF8 /* StartAppPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */; };
@@ -58,8 +68,18 @@
 		0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Society_Hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD5CEB79FADC0A5A51FA144 /* Pods-My Society Hub-My Society HubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; path = "Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		866520D75F47A3D34D7BDACC /* Pods-My Society HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society HubTests.debug.xcconfig"; path = "Target Support Files/Pods-My Society HubTests/Pods-My Society HubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8779511326597EBA002860F9 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
+		8779511426597EBA002860F9 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		877F933226596BB100826C36 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		877F933426596E3F00826C36 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		877F933726596F2900826C36 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		877F933926596F3A00826C36 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		877F933B2659713800826C36 /* DashboardTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBarVC.swift; sourceTree = "<group>"; };
+		877F933D265972EB00826C36 /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		877F93402659757F00826C36 /* NoticeBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBoardCell.swift; sourceTree = "<group>"; };
+		877F93412659757F00826C36 /* NoticeBoardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeBoardCell.xib; sourceTree = "<group>"; };
+		877F934426597C8F00826C36 /* OperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCell.swift; sourceTree = "<group>"; };
+		877F934526597C8F00826C36 /* OperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationCell.xib; sourceTree = "<group>"; };
 		87A7EE652657847000562DF8 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
 		87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppPagerCell.swift; sourceTree = "<group>"; };
 		87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartAppPagerCell.xib; sourceTree = "<group>"; };
@@ -138,6 +158,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		877F933626596F1900826C36 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				877F933F2659756500826C36 /* Cell */,
+				877F933726596F2900826C36 /* Dashboard.storyboard */,
+				877F933926596F3A00826C36 /* DashboardVC.swift */,
+				877F933B2659713800826C36 /* DashboardTabBarVC.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		877F933F2659756500826C36 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				877F93402659757F00826C36 /* NoticeBoardCell.swift */,
+				877F93412659757F00826C36 /* NoticeBoardCell.xib */,
+				877F934426597C8F00826C36 /* OperationCell.swift */,
+				877F934526597C8F00826C36 /* OperationCell.xib */,
+				8779511326597EBA002860F9 /* ImageCollectionCell.swift */,
+				8779511426597EBA002860F9 /* ImageCollectionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		87A7EE642657845C00562DF8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +219,7 @@
 		87A7EE762657939500562DF8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				877F933626596F1900826C36 /* Dashboard */,
 				87A7EE77265793AC00562DF8 /* Login */,
 				87DE5CE72654FE52002FAF59 /* StartAppPagerScreen */,
 			);
@@ -196,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				87A7EE7F265795AC00562DF8 /* Declaration.swift */,
+				877F933D265972EB00826C36 /* PagingCollectionViewLayout.swift */,
 			);
 			path = HelperClass;
 			sourceTree = "<group>";
@@ -418,7 +464,11 @@
 				87A7EE7B265793D600562DF8 /* Login.storyboard in Resources */,
 				87DE5CBE2654F721002FAF59 /* LaunchScreen.storyboard in Resources */,
 				87DE5CBB2654F721002FAF59 /* Assets.xcassets in Resources */,
+				877F934726597C8F00826C36 /* OperationCell.xib in Resources */,
+				877F933826596F2900826C36 /* Dashboard.storyboard in Resources */,
+				877F93432659757F00826C36 /* NoticeBoardCell.xib in Resources */,
 				87DE5CB92654F720002FAF59 /* Main.storyboard in Resources */,
+				8779511626597EBA002860F9 /* ImageCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,18 +563,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A7EE712657871300562DF8 /* Constants+Localization.swift in Sources */,
+				877F934626597C8F00826C36 /* OperationCell.swift in Sources */,
+				877F933C2659713800826C36 /* DashboardTabBarVC.swift in Sources */,
+				8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */,
 				87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */,
+				877F93422659757F00826C36 /* NoticeBoardCell.swift in Sources */,
 				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,
 				87DE5CB22654F720002FAF59 /* AppDelegate.swift in Sources */,
 				877F933526596E3F00826C36 /* ChangePasswordVC.swift in Sources */,
 				87A7EE6D265785AB00562DF8 /* UIView+Extension.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
+				877F933E265972EB00826C36 /* PagingCollectionViewLayout.swift in Sources */,
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
 				87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */,
 				87DE5CF5265501D7002FAF59 /* UIColor+Extension.swift in Sources */,
 				87DE5CF3265501CA002FAF59 /* String+Extension.swift in Sources */,
 				87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */,
 				87A7EE6F265785BE00562DF8 /* StartAppPagerModel.swift in Sources */,
+				877F933A26596F3A00826C36 /* DashboardVC.swift in Sources */,
 				87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */,
 				87A7EE75265789FB00562DF8 /* Constants+Images.swift in Sources */,
 				877F933326596BB100826C36 /* ForgotPasswordVC.swift in Sources */,

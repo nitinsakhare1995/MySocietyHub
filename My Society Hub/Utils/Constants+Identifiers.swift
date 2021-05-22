@@ -9,4 +9,7 @@ import Foundation
 
 struct AppIdentifiers {
     static let startAppPagerCell = "StartAppPagerCell"
+    static let noticeBoardCell = "NoticeBoardCell"
+    static let operationCell = "OperationCell"
+    static let imageCollectionCell = "ImageCollectionCell"
 }
