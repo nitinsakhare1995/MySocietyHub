@@ -12,4 +12,6 @@ struct AppIdentifiers {
     static let noticeBoardCell = "NoticeBoardCell"
     static let operationCell = "OperationCell"
     static let imageCollectionCell = "ImageCollectionCell"
+    static let noticeCell = "NoticeCell"
+    static let complaintCell = "ComplaintCell"
 }

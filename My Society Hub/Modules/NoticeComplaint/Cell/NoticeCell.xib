@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoticeCell" id="gTV-IL-0wX" customClass="NoticeCell" customModule="My_Society_Hub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="267" height="182"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="267" height="182"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pY-rH-EbN">
+                        <rect key="frame" x="10" y="10" width="247" height="162"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No water tomoorw" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6s-0d-evQ">
+                                <rect key="frame" x="8" y="12" width="130" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Date-15-April-2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVs-md-voh">
+                                <rect key="frame" x="8" y="45" width="182" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDG-g8-Axz">
+                                <rect key="frame" x="8" y="75" width="231" height="0.5"/>
+                                <color key="backgroundColor" name="redLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="Ocn-bb-oav"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Date-15-April-2021" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvF-nE-siq">
+                                <rect key="frame" x="8" y="87.5" width="182" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CDG-g8-Axz" secondAttribute="trailing" constant="8" id="22W-8s-ldK"/>
+                            <constraint firstItem="O6s-0d-evQ" firstAttribute="leading" secondItem="1pY-rH-EbN" secondAttribute="leading" constant="8" id="7hA-1X-H4e"/>
+                            <constraint firstItem="rVs-md-voh" firstAttribute="top" secondItem="O6s-0d-evQ" secondAttribute="bottom" constant="15" id="9D2-ef-Mns"/>
+                            <constraint firstItem="CDG-g8-Axz" firstAttribute="top" secondItem="rVs-md-voh" secondAttribute="bottom" constant="12" id="FWz-5N-LtZ"/>
+                            <constraint firstItem="O6s-0d-evQ" firstAttribute="top" secondItem="1pY-rH-EbN" secondAttribute="top" constant="12" id="L43-G1-bkl"/>
+                            <constraint firstItem="CDG-g8-Axz" firstAttribute="leading" secondItem="1pY-rH-EbN" secondAttribute="leading" constant="8" id="SgT-mI-odp"/>
+                            <constraint firstItem="rVs-md-voh" firstAttribute="leading" secondItem="1pY-rH-EbN" secondAttribute="leading" constant="8" id="TKU-F3-Fh3"/>
+                            <constraint firstItem="JvF-nE-siq" firstAttribute="top" secondItem="CDG-g8-Axz" secondAttribute="bottom" constant="12" id="VQn-vo-Kwk"/>
+                            <constraint firstItem="JvF-nE-siq" firstAttribute="leading" secondItem="1pY-rH-EbN" secondAttribute="leading" constant="8" id="aBy-Lt-ZMV"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1pY-rH-EbN" secondAttribute="bottom" constant="10" id="5PP-2N-oUt"/>
+                <constraint firstItem="1pY-rH-EbN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="C2v-eL-Ps5"/>
+                <constraint firstItem="1pY-rH-EbN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="Mmy-bu-mdH"/>
+                <constraint firstAttribute="trailing" secondItem="1pY-rH-EbN" secondAttribute="trailing" constant="10" id="qtJ-64-MHE"/>
+            </constraints>
+            <size key="customSize" width="267" height="182"/>
+            <connections>
+                <outlet property="mainView" destination="1pY-rH-EbN" id="NW3-Q3-Sx1"/>
+            </connections>
+            <point key="canvasLocation" x="294.92753623188406" y="164.73214285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="redLabelColor">
+            <color red="0.86274509803921573" green="0.078431372549019607" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
