@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		298A876DDCBB2D3940D75230 /* Pods_My_Society_HubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7DABD15B477E43A277D72A /* Pods_My_Society_HubTests.framework */; };
 		5F76E99A0C747C69AEB07B47 /* Pods_My_Society_Hub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */; };
+		870655D1265A858800BF9904 /* NewNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870655D0265A858800BF9904 /* NewNoticeVC.swift */; };
+		870655D3265A859700BF9904 /* NewComplaintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870655D2265A859700BF9904 /* NewComplaintVC.swift */; };
 		8724FE12265A68520032BB07 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE10265A68520032BB07 /* MyAccountCell.swift */; };
 		8724FE13265A68520032BB07 /* MyAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8724FE11265A68520032BB07 /* MyAccountCell.xib */; };
 		8724FE15265A6A670032BB07 /* BillSlabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE14265A6A670032BB07 /* BillSlabVC.swift */; };
@@ -95,6 +97,8 @@
 		0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Society_Hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD5CEB79FADC0A5A51FA144 /* Pods-My Society Hub-My Society HubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; path = "Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		866520D75F47A3D34D7BDACC /* Pods-My Society HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society HubTests.debug.xcconfig"; path = "Target Support Files/Pods-My Society HubTests/Pods-My Society HubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		870655D0265A858800BF9904 /* NewNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeVC.swift; sourceTree = "<group>"; };
+		870655D2265A859700BF9904 /* NewComplaintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewComplaintVC.swift; sourceTree = "<group>"; };
 		8724FE10265A68520032BB07 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
 		8724FE11265A68520032BB07 /* MyAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAccountCell.xib; sourceTree = "<group>"; };
 		8724FE14265A6A670032BB07 /* BillSlabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSlabVC.swift; sourceTree = "<group>"; };
@@ -246,6 +250,8 @@
 				877951212659853F002860F9 /* ComplaintVC.swift */,
 				87272855265A78840096499F /* NoticeDetailsVC.swift */,
 				87272857265A78940096499F /* ComplaintDetailsVC.swift */,
+				870655D0265A858800BF9904 /* NewNoticeVC.swift */,
+				870655D2265A859700BF9904 /* NewComplaintVC.swift */,
 			);
 			path = NoticeComplaint;
 			sourceTree = "<group>";
@@ -737,9 +743,11 @@
 				87272858265A78940096499F /* ComplaintDetailsVC.swift in Sources */,
 				87A7EE6D265785AB00562DF8 /* UIView+Extension.swift in Sources */,
 				87272848265A71260096499F /* EmergencyVC.swift in Sources */,
+				870655D1265A858800BF9904 /* NewNoticeVC.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
 				87272853265A74F20096499F /* EmergencyNumbersCell.swift in Sources */,
 				877F933E265972EB00826C36 /* PagingCollectionViewLayout.swift in Sources */,
+				870655D3265A859700BF9904 /* NewComplaintVC.swift in Sources */,
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
 				87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */,
 				87DE5CF5265501D7002FAF59 /* UIColor+Extension.swift in Sources */,
