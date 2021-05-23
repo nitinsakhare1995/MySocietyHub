@@ -376,8 +376,68 @@
                     <view key="view" contentMode="scaleToFill" id="ZtA-bP-IKf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gxH-yI-LiC">
+                                <rect key="frame" x="379" y="44" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="5jb-hQ-AzN"/>
+                                    <constraint firstAttribute="height" constant="20" id="lax-3W-X9i"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="3" minY="3" maxX="3" maxY="3"/>
+                                <state key="normal" image="cancel"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnX-o7-DSC">
+                                <rect key="frame" x="15" y="44" width="77" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your tax efire" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5W-gd-ESd">
+                                <rect key="frame" x="15" y="94" width="384" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvQ-Jh-1hf">
+                                <rect key="frame" x="15" y="140" width="384" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQT-18-V2c">
+                                <rect key="frame" x="15" y="166.5" width="384" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SEm-dR-ugA">
+                                <rect key="frame" x="15" y="189.5" width="384" height="0.5"/>
+                                <color key="backgroundColor" name="appOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="0.5" id="ubH-wp-YMs"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="OWJ-Ab-4HN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OWJ-Ab-4HN" firstAttribute="trailing" secondItem="RQT-18-V2c" secondAttribute="trailing" constant="15" id="0dl-08-iOM"/>
+                            <constraint firstItem="RQT-18-V2c" firstAttribute="top" secondItem="qvQ-Jh-1hf" secondAttribute="bottom" constant="12" id="5sE-Fx-btY"/>
+                            <constraint firstItem="SEm-dR-ugA" firstAttribute="top" secondItem="RQT-18-V2c" secondAttribute="bottom" constant="8" id="6S6-cU-eA2"/>
+                            <constraint firstItem="qvQ-Jh-1hf" firstAttribute="leading" secondItem="OWJ-Ab-4HN" secondAttribute="leading" constant="15" id="8Pn-4d-s4J"/>
+                            <constraint firstItem="gxH-yI-LiC" firstAttribute="top" secondItem="OWJ-Ab-4HN" secondAttribute="top" id="ASk-Sn-tDw"/>
+                            <constraint firstItem="OWJ-Ab-4HN" firstAttribute="trailing" secondItem="qvQ-Jh-1hf" secondAttribute="trailing" constant="15" id="BR1-Qm-JyX"/>
+                            <constraint firstItem="OWJ-Ab-4HN" firstAttribute="trailing" secondItem="W5W-gd-ESd" secondAttribute="trailing" constant="15" id="G5R-Xy-4g5"/>
+                            <constraint firstItem="SEm-dR-ugA" firstAttribute="leading" secondItem="OWJ-Ab-4HN" secondAttribute="leading" constant="15" id="HWa-P3-WhN"/>
+                            <constraint firstItem="OWJ-Ab-4HN" firstAttribute="trailing" secondItem="gxH-yI-LiC" secondAttribute="trailing" constant="15" id="Is5-UB-ohD"/>
+                            <constraint firstItem="qvQ-Jh-1hf" firstAttribute="top" secondItem="W5W-gd-ESd" secondAttribute="bottom" constant="16" id="PM4-vy-vYA"/>
+                            <constraint firstItem="W5W-gd-ESd" firstAttribute="leading" secondItem="OWJ-Ab-4HN" secondAttribute="leading" constant="15" id="Tvo-Jp-8cX"/>
+                            <constraint firstItem="NnX-o7-DSC" firstAttribute="top" secondItem="OWJ-Ab-4HN" secondAttribute="top" id="Urs-db-LhM"/>
+                            <constraint firstItem="RQT-18-V2c" firstAttribute="leading" secondItem="OWJ-Ab-4HN" secondAttribute="leading" constant="15" id="aB4-bV-Rdh"/>
+                            <constraint firstItem="W5W-gd-ESd" firstAttribute="top" secondItem="NnX-o7-DSC" secondAttribute="bottom" constant="20" id="cre-eP-LHr"/>
+                            <constraint firstItem="OWJ-Ab-4HN" firstAttribute="trailing" secondItem="SEm-dR-ugA" secondAttribute="trailing" constant="15" id="ezN-1q-dZ8"/>
+                            <constraint firstItem="NnX-o7-DSC" firstAttribute="leading" secondItem="OWJ-Ab-4HN" secondAttribute="leading" constant="15" id="gPZ-iH-kMa"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6y-fg-cHe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

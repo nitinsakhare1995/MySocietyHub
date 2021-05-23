@@ -45,7 +45,7 @@ extension EmergencyVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let sheetController = SheetViewController(controller: ComplaintDetailsVC.instantiate(from: .noticeComplaint), sizes: [.marginFromTop(100)])
+        let sheetController = SheetViewController(controller: NoticeDetailsVC.instantiate(from: .noticeComplaint), sizes: [.marginFromTop(100)])
         self.present(sheetController, animated: true, completion: nil)
     }
     
