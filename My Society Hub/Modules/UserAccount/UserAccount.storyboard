@@ -159,6 +159,36 @@
             </objects>
             <point key="canvasLocation" x="757" y="106"/>
         </scene>
+        <!--Signatory DetailsVC-->
+        <scene sceneID="wbd-tG-QZr">
+            <objects>
+                <viewController storyboardIdentifier="SignatoryDetailsVC" id="s9S-5i-9j4" customClass="SignatoryDetailsVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JNE-x6-4FO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UkD-SW-DQv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Ne-Jy-Lg9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Ne-Jy-Lg9" firstAttribute="trailing" secondItem="UkD-SW-DQv" secondAttribute="trailing" id="8Qe-gp-dPd"/>
+                            <constraint firstItem="UkD-SW-DQv" firstAttribute="leading" secondItem="5Ne-Jy-Lg9" secondAttribute="leading" id="FYq-kO-qT7"/>
+                            <constraint firstItem="UkD-SW-DQv" firstAttribute="top" secondItem="5Ne-Jy-Lg9" secondAttribute="top" id="Wba-2Z-wnU"/>
+                            <constraint firstItem="5Ne-Jy-Lg9" firstAttribute="bottom" secondItem="UkD-SW-DQv" secondAttribute="bottom" id="xFu-pU-jUK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="UkD-SW-DQv" id="Edr-tv-Lci"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0s-XL-f7R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="106"/>
+        </scene>
     </scenes>
     <resources>
         <image name="man" width="512" height="512"/>

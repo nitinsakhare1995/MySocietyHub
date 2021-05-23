@@ -14,6 +14,9 @@
 		8724FE15265A6A670032BB07 /* BillSlabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE14265A6A670032BB07 /* BillSlabVC.swift */; };
 		8724FE18265A6A7D0032BB07 /* BillSlabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE16265A6A7D0032BB07 /* BillSlabCell.swift */; };
 		8724FE19265A6A7D0032BB07 /* BillSlabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8724FE17265A6A7D0032BB07 /* BillSlabCell.xib */; };
+		8724FE1C265A6D8D0032BB07 /* SignatoryDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE1A265A6D8D0032BB07 /* SignatoryDetailsCell.swift */; };
+		8724FE1D265A6D8D0032BB07 /* SignatoryDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8724FE1B265A6D8D0032BB07 /* SignatoryDetailsCell.xib */; };
+		87272846265A6F670096499F /* SignatoryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272845265A6F670096499F /* SignatoryDetailsVC.swift */; };
 		8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8779511326597EBA002860F9 /* ImageCollectionCell.swift */; };
 		8779511626597EBA002860F9 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8779511426597EBA002860F9 /* ImageCollectionCell.xib */; };
 		87795119265984AE002860F9 /* UserAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87795118265984AE002860F9 /* UserAccount.storyboard */; };
@@ -88,6 +91,9 @@
 		8724FE14265A6A670032BB07 /* BillSlabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSlabVC.swift; sourceTree = "<group>"; };
 		8724FE16265A6A7D0032BB07 /* BillSlabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSlabCell.swift; sourceTree = "<group>"; };
 		8724FE17265A6A7D0032BB07 /* BillSlabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillSlabCell.xib; sourceTree = "<group>"; };
+		8724FE1A265A6D8D0032BB07 /* SignatoryDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatoryDetailsCell.swift; sourceTree = "<group>"; };
+		8724FE1B265A6D8D0032BB07 /* SignatoryDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatoryDetailsCell.xib; sourceTree = "<group>"; };
+		87272845265A6F670096499F /* SignatoryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatoryDetailsVC.swift; sourceTree = "<group>"; };
 		8779511326597EBA002860F9 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		8779511426597EBA002860F9 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		87795118265984AE002860F9 /* UserAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAccount.storyboard; sourceTree = "<group>"; };
@@ -195,6 +201,8 @@
 				8724FE11265A68520032BB07 /* MyAccountCell.xib */,
 				8724FE16265A6A7D0032BB07 /* BillSlabCell.swift */,
 				8724FE17265A6A7D0032BB07 /* BillSlabCell.xib */,
+				8724FE1A265A6D8D0032BB07 /* SignatoryDetailsCell.swift */,
+				8724FE1B265A6D8D0032BB07 /* SignatoryDetailsCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 				87795118265984AE002860F9 /* UserAccount.storyboard */,
 				8779511A265984D1002860F9 /* MyAccountVC.swift */,
 				8724FE14265A6A670032BB07 /* BillSlabVC.swift */,
+				87272845265A6F670096499F /* SignatoryDetailsVC.swift */,
 			);
 			path = UserAccount;
 			sourceTree = "<group>";
@@ -541,6 +550,7 @@
 				87A7EE7B265793D600562DF8 /* Login.storyboard in Resources */,
 				87795119265984AE002860F9 /* UserAccount.storyboard in Resources */,
 				87DE5CBE2654F721002FAF59 /* LaunchScreen.storyboard in Resources */,
+				8724FE1D265A6D8D0032BB07 /* SignatoryDetailsCell.xib in Resources */,
 				8779512B26598817002860F9 /* ComplaintCell.xib in Resources */,
 				8724FE19265A6A7D0032BB07 /* BillSlabCell.xib in Resources */,
 				87DE5CBB2654F721002FAF59 /* Assets.xcassets in Resources */,
@@ -652,6 +662,7 @@
 				87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */,
 				8779511E26598505002860F9 /* NoticeVC.swift in Sources */,
 				877F93422659757F00826C36 /* NoticeBoardCell.swift in Sources */,
+				8724FE1C265A6D8D0032BB07 /* SignatoryDetailsCell.swift in Sources */,
 				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,
 				87DE5CB22654F720002FAF59 /* AppDelegate.swift in Sources */,
 				8779511B265984D1002860F9 /* MyAccountVC.swift in Sources */,
@@ -670,6 +681,7 @@
 				8724FE15265A6A670032BB07 /* BillSlabVC.swift in Sources */,
 				87A7EE6F265785BE00562DF8 /* StartAppPagerModel.swift in Sources */,
 				877951222659853F002860F9 /* ComplaintVC.swift in Sources */,
+				87272846265A6F670096499F /* SignatoryDetailsVC.swift in Sources */,
 				877F933A26596F3A00826C36 /* DashboardVC.swift in Sources */,
 				87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */,
 				8724FE12265A68520032BB07 /* MyAccountCell.swift in Sources */,
