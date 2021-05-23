@@ -13,6 +13,7 @@ enum Storyboard: String {
     case login = "Login"
     case dashboard = "Dashboard"
     case noticeComplaint = "NoticeComplaint"
+    case userAccount = "UserAccount"
 }
 
 /// Storyboarded
