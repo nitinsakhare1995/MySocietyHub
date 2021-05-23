@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,13 @@
 		8724FE1C265A6D8D0032BB07 /* SignatoryDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE1A265A6D8D0032BB07 /* SignatoryDetailsCell.swift */; };
 		8724FE1D265A6D8D0032BB07 /* SignatoryDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8724FE1B265A6D8D0032BB07 /* SignatoryDetailsCell.xib */; };
 		87272846265A6F670096499F /* SignatoryDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272845265A6F670096499F /* SignatoryDetailsVC.swift */; };
+		87272848265A71260096499F /* EmergencyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272847265A71260096499F /* EmergencyVC.swift */; };
+		8727284B265A71380096499F /* EmergencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272849265A71380096499F /* EmergencyCell.swift */; };
+		8727284C265A71380096499F /* EmergencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8727284A265A71380096499F /* EmergencyCell.xib */; };
+		8727284E265A73490096499F /* GlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8727284D265A73490096499F /* GlobalHelper.swift */; };
+		87272850265A73B40096499F /* EmergencyNumbersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8727284F265A73B40096499F /* EmergencyNumbersVC.swift */; };
+		87272853265A74F20096499F /* EmergencyNumbersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272851265A74F20096499F /* EmergencyNumbersCell.swift */; };
+		87272854265A74F20096499F /* EmergencyNumbersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87272852265A74F20096499F /* EmergencyNumbersCell.xib */; };
 		8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8779511326597EBA002860F9 /* ImageCollectionCell.swift */; };
 		8779511626597EBA002860F9 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8779511426597EBA002860F9 /* ImageCollectionCell.xib */; };
 		87795119265984AE002860F9 /* UserAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87795118265984AE002860F9 /* UserAccount.storyboard */; };
@@ -94,6 +101,13 @@
 		8724FE1A265A6D8D0032BB07 /* SignatoryDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatoryDetailsCell.swift; sourceTree = "<group>"; };
 		8724FE1B265A6D8D0032BB07 /* SignatoryDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignatoryDetailsCell.xib; sourceTree = "<group>"; };
 		87272845265A6F670096499F /* SignatoryDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatoryDetailsVC.swift; sourceTree = "<group>"; };
+		87272847265A71260096499F /* EmergencyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyVC.swift; sourceTree = "<group>"; };
+		87272849265A71380096499F /* EmergencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyCell.swift; sourceTree = "<group>"; };
+		8727284A265A71380096499F /* EmergencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmergencyCell.xib; sourceTree = "<group>"; };
+		8727284D265A73490096499F /* GlobalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalHelper.swift; sourceTree = "<group>"; };
+		8727284F265A73B40096499F /* EmergencyNumbersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyNumbersVC.swift; sourceTree = "<group>"; };
+		87272851265A74F20096499F /* EmergencyNumbersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyNumbersCell.swift; sourceTree = "<group>"; };
+		87272852265A74F20096499F /* EmergencyNumbersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmergencyNumbersCell.xib; sourceTree = "<group>"; };
 		8779511326597EBA002860F9 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		8779511426597EBA002860F9 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		87795118265984AE002860F9 /* UserAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAccount.storyboard; sourceTree = "<group>"; };
@@ -249,6 +263,8 @@
 				877F933926596F3A00826C36 /* DashboardVC.swift */,
 				877F933B2659713800826C36 /* DashboardTabBarVC.swift */,
 				87D3F8D8265A4E6C00064F19 /* PayNowVC.swift */,
+				87272847265A71260096499F /* EmergencyVC.swift */,
+				8727284F265A73B40096499F /* EmergencyNumbersVC.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -262,6 +278,10 @@
 				877F934526597C8F00826C36 /* OperationCell.xib */,
 				8779511326597EBA002860F9 /* ImageCollectionCell.swift */,
 				8779511426597EBA002860F9 /* ImageCollectionCell.xib */,
+				87272849265A71380096499F /* EmergencyCell.swift */,
+				8727284A265A71380096499F /* EmergencyCell.xib */,
+				87272851265A74F20096499F /* EmergencyNumbersCell.swift */,
+				87272852265A74F20096499F /* EmergencyNumbersCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -328,6 +348,7 @@
 			children = (
 				87A7EE7F265795AC00562DF8 /* Declaration.swift */,
 				877F933D265972EB00826C36 /* PagingCollectionViewLayout.swift */,
+				8727284D265A73490096499F /* GlobalHelper.swift */,
 			);
 			path = HelperClass;
 			sourceTree = "<group>";
@@ -450,6 +471,7 @@
 				87DE5CAA2654F720002FAF59 /* Sources */,
 				87DE5CAB2654F720002FAF59 /* Frameworks */,
 				87DE5CAC2654F720002FAF59 /* Resources */,
+				3730BF7DE0BBFF6B6266F076 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -487,6 +509,7 @@
 				87DE5CCB2654F721002FAF59 /* Sources */,
 				87DE5CCC2654F721002FAF59 /* Frameworks */,
 				87DE5CCD2654F721002FAF59 /* Resources */,
+				E1390D9B38A445AC8F797203 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,11 +574,13 @@
 				87795119265984AE002860F9 /* UserAccount.storyboard in Resources */,
 				87DE5CBE2654F721002FAF59 /* LaunchScreen.storyboard in Resources */,
 				8724FE1D265A6D8D0032BB07 /* SignatoryDetailsCell.xib in Resources */,
+				87272854265A74F20096499F /* EmergencyNumbersCell.xib in Resources */,
 				8779512B26598817002860F9 /* ComplaintCell.xib in Resources */,
 				8724FE19265A6A7D0032BB07 /* BillSlabCell.xib in Resources */,
 				87DE5CBB2654F721002FAF59 /* Assets.xcassets in Resources */,
 				8779512026598521002860F9 /* NoticeComplaint.storyboard in Resources */,
 				8724FE13265A68520032BB07 /* MyAccountCell.xib in Resources */,
+				8727284C265A71380096499F /* EmergencyCell.xib in Resources */,
 				877F934726597C8F00826C36 /* OperationCell.xib in Resources */,
 				877F933826596F2900826C36 /* Dashboard.storyboard in Resources */,
 				877F93432659757F00826C36 /* NoticeBoardCell.xib in Resources */,
@@ -604,6 +629,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3730BF7DE0BBFF6B6266F076 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Society Hub/Pods-My Society Hub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Society Hub/Pods-My Society Hub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My Society Hub/Pods-My Society Hub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9F2E837205D989ED645C8CB0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -648,6 +690,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E1390D9B38A445AC8F797203 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-My Society Hub-My Society HubUITests/Pods-My Society Hub-My Society HubUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -661,6 +720,7 @@
 				8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */,
 				87DE5CB62654F720002FAF59 /* StartAppPagerVC.swift in Sources */,
 				8779511E26598505002860F9 /* NoticeVC.swift in Sources */,
+				8727284E265A73490096499F /* GlobalHelper.swift in Sources */,
 				877F93422659757F00826C36 /* NoticeBoardCell.swift in Sources */,
 				8724FE1C265A6D8D0032BB07 /* SignatoryDetailsCell.swift in Sources */,
 				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,
@@ -669,11 +729,14 @@
 				8779512626598805002860F9 /* NoticeCell.swift in Sources */,
 				877F933526596E3F00826C36 /* ChangePasswordVC.swift in Sources */,
 				87A7EE6D265785AB00562DF8 /* UIView+Extension.swift in Sources */,
+				87272848265A71260096499F /* EmergencyVC.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
+				87272853265A74F20096499F /* EmergencyNumbersCell.swift in Sources */,
 				877F933E265972EB00826C36 /* PagingCollectionViewLayout.swift in Sources */,
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
 				87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */,
 				87DE5CF5265501D7002FAF59 /* UIColor+Extension.swift in Sources */,
+				87272850265A73B40096499F /* EmergencyNumbersVC.swift in Sources */,
 				8724FE18265A6A7D0032BB07 /* BillSlabCell.swift in Sources */,
 				87DE5CF3265501CA002FAF59 /* String+Extension.swift in Sources */,
 				87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */,
@@ -683,6 +746,7 @@
 				877951222659853F002860F9 /* ComplaintVC.swift in Sources */,
 				87272846265A6F670096499F /* SignatoryDetailsVC.swift in Sources */,
 				877F933A26596F3A00826C36 /* DashboardVC.swift in Sources */,
+				8727284B265A71380096499F /* EmergencyCell.swift in Sources */,
 				87A7EE7D2657954600562DF8 /* UIStoryboard+Extensions.swift in Sources */,
 				8724FE12265A68520032BB07 /* MyAccountCell.swift in Sources */,
 				87A7EE75265789FB00562DF8 /* Constants+Images.swift in Sources */,

@@ -945,9 +945,112 @@
             </objects>
             <point key="canvasLocation" x="-878.26086956521749" y="-113.16964285714285"/>
         </scene>
+        <!--EmergencyVC-->
+        <scene sceneID="c8t-jX-cun">
+            <objects>
+                <viewController storyboardIdentifier="EmergencyVC" id="Fwh-WM-8tq" customClass="EmergencyVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WhZ-hY-8vN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ORS-EV-WVE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RUJ-wG-miE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RUJ-wG-miE" firstAttribute="trailing" secondItem="ORS-EV-WVE" secondAttribute="trailing" id="1zP-CH-lCg"/>
+                            <constraint firstItem="RUJ-wG-miE" firstAttribute="bottom" secondItem="ORS-EV-WVE" secondAttribute="bottom" id="GcK-06-7Dl"/>
+                            <constraint firstItem="ORS-EV-WVE" firstAttribute="top" secondItem="RUJ-wG-miE" secondAttribute="top" id="qz0-qo-ZQ1"/>
+                            <constraint firstItem="ORS-EV-WVE" firstAttribute="leading" secondItem="RUJ-wG-miE" secondAttribute="leading" id="ytc-Ml-Zsh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ORS-EV-WVE" id="uge-FS-aqc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KjV-JS-7XE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1386" y="106"/>
+        </scene>
+        <!--Emergency NumbersVC-->
+        <scene sceneID="87I-KG-3dp">
+            <objects>
+                <viewController storyboardIdentifier="EmergencyNumbersVC" id="q3F-vF-T9V" customClass="EmergencyNumbersVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cg9-TT-Q3L">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oS0-ip-0qL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-oQ-lxv">
+                                        <rect key="frame" x="12" y="10" width="390" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xso-1c-HV8">
+                                        <rect key="frame" x="8" y="42" width="398" height="0.5"/>
+                                        <color key="backgroundColor" name="blueBorderColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="0.5" id="CjX-r6-bcp"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="g6K-fO-HDP">
+                                        <rect key="frame" x="0.0" y="52.5" width="414" height="765.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jc1-VL-1OD">
+                                        <rect key="frame" x="367" y="11" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="15" id="8E2-et-yZM"/>
+                                            <constraint firstAttribute="height" constant="15" id="twN-vL-d05"/>
+                                        </constraints>
+                                        <state key="normal" image="cancel"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Jc1-VL-1OD" secondAttribute="trailing" constant="32" id="1nk-0E-B7E"/>
+                                    <constraint firstAttribute="bottom" secondItem="g6K-fO-HDP" secondAttribute="bottom" id="7ct-54-DiU"/>
+                                    <constraint firstAttribute="trailing" secondItem="HTT-oQ-lxv" secondAttribute="trailing" constant="12" id="Bra-Ov-jns"/>
+                                    <constraint firstItem="HTT-oQ-lxv" firstAttribute="leading" secondItem="oS0-ip-0qL" secondAttribute="leading" constant="12" id="Jcy-xP-VR2"/>
+                                    <constraint firstItem="g6K-fO-HDP" firstAttribute="leading" secondItem="oS0-ip-0qL" secondAttribute="leading" id="MY8-1r-HrP"/>
+                                    <constraint firstItem="Xso-1c-HV8" firstAttribute="leading" secondItem="oS0-ip-0qL" secondAttribute="leading" constant="8" id="RNo-Ww-FaC"/>
+                                    <constraint firstItem="Xso-1c-HV8" firstAttribute="top" secondItem="HTT-oQ-lxv" secondAttribute="bottom" constant="15" id="WpD-gy-hPO"/>
+                                    <constraint firstItem="Jc1-VL-1OD" firstAttribute="top" secondItem="oS0-ip-0qL" secondAttribute="top" constant="11" id="dgx-kJ-AmI"/>
+                                    <constraint firstItem="HTT-oQ-lxv" firstAttribute="top" secondItem="oS0-ip-0qL" secondAttribute="top" constant="10" id="di4-i2-GMK"/>
+                                    <constraint firstAttribute="trailing" secondItem="g6K-fO-HDP" secondAttribute="trailing" id="e0c-uk-JFV"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xso-1c-HV8" secondAttribute="trailing" constant="8" id="eG7-8V-th9"/>
+                                    <constraint firstItem="g6K-fO-HDP" firstAttribute="top" secondItem="Xso-1c-HV8" secondAttribute="bottom" constant="10" id="xwU-Av-aFm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YcX-uA-2Rs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YcX-uA-2Rs" firstAttribute="bottom" secondItem="oS0-ip-0qL" secondAttribute="bottom" id="AUd-9g-QEd"/>
+                            <constraint firstItem="oS0-ip-0qL" firstAttribute="leading" secondItem="YcX-uA-2Rs" secondAttribute="leading" id="PoB-9q-9ql"/>
+                            <constraint firstItem="YcX-uA-2Rs" firstAttribute="trailing" secondItem="oS0-ip-0qL" secondAttribute="trailing" id="dkI-8R-Mw6"/>
+                            <constraint firstItem="oS0-ip-0qL" firstAttribute="top" secondItem="YcX-uA-2Rs" secondAttribute="top" id="twg-CV-hTH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="oS0-ip-0qL" id="vA3-Cf-UFM"/>
+                        <outlet property="tableView" destination="g6K-fO-HDP" id="yeR-RO-XF1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dAw-NO-Rd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011.594202898551" y="105.80357142857143"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add" width="64" height="64"/>
+        <image name="cancel" width="46" height="46"/>
         <image name="edit" width="64" height="64"/>
         <image name="man" width="512" height="512"/>
         <namedColor name="appOrangeColor">
