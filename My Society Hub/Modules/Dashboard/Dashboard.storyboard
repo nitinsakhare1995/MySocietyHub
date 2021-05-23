@@ -1039,7 +1039,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainView" destination="oS0-ip-0qL" id="vA3-Cf-UFM"/>
                         <outlet property="tableView" destination="g6K-fO-HDP" id="yeR-RO-XF1"/>
                     </connections>
                 </viewController>

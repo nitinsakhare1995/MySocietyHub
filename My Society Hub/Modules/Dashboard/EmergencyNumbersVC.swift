@@ -9,14 +9,13 @@ import UIKit
 
 class EmergencyNumbersVC: BaseViewController {
     
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         registerNib()
-        mainView.roundCorners([.topLeft, .topRight], radius: 40)
+        
         
     }
     
