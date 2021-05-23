@@ -31,7 +31,7 @@ class LoginVC: BaseViewController {
     
 
     @IBAction func btnForgotPasswordTapped(_ sender: UIButton) {
-        let forgotPasswordVC = NewComplaintVC.instantiate(from: .noticeComplaint)
+        let forgotPasswordVC = NewNoticeVC.instantiate(from: .noticeComplaint)
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
         
 //        let vc = UIStoryboard(name: Storyboard.dashboard.rawValue, bundle: nil).instantiateViewController(identifier: "DashboardTabBarVC") as! DashboardTabBarVC
