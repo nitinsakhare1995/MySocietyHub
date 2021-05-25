@@ -10,35 +10,40 @@ import UIKit
 class LoginVC: BaseViewController {
 
     @IBOutlet weak var tiltView: UIView!
-    @IBOutlet weak var lblAppName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setAttributeText()
 //        tiltView.rotate(degrees: -45)
         
     }
-    
-    func setAttributeText(){
-        let appName = NSMutableAttributedString.init(string: LocalizedString.appName)
-        appName.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 32),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black],
-                                     range: NSMakeRange(0, 2))
-        lblAppName.attributedText = appName
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
 
     @IBAction func btnForgotPasswordTapped(_ sender: UIButton) {
-        let forgotPasswordVC = NewNoticeVC.instantiate(from: .noticeComplaint)
+        let forgotPasswordVC = ForgotPasswordVC.instantiate(from: .login)
         self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
-        
-//        let vc = UIStoryboard(name: Storyboard.dashboard.rawValue, bundle: nil).instantiateViewController(identifier: "DashboardTabBarVC") as! DashboardTabBarVC
-//        self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
+    @IBAction func btnLoginTapped(_ sender: UIButton) {
+        setRootAsDashboardScreen()
+    }
+    
+    func setRootAsDashboardScreen() {
+        let vc = UIStoryboard(name: Storyboard.dashboard.rawValue, bundle: nil).instantiateViewController(identifier: "DashboardTabBarVC") as! DashboardTabBarVC
+        self.navigationController?.viewControllers = [vc]
+        windowSceneDelegate?.window?.rootViewController = navigationController
+        windowSceneDelegate?.window?.makeKeyAndVisible()
+    }
     
 }
 

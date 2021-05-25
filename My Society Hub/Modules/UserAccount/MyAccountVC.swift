@@ -19,6 +19,16 @@ class MyAccountVC: BaseViewController {
         registerNib()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "ACCOUNT"
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+    
     func registerNib(){
         tableView.delegate = self
         tableView.dataSource = self

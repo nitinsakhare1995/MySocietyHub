@@ -18,6 +18,16 @@ class NoticeVC: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Notice List"
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+    
     func registerNib(){
         collectionView.delegate = self
         collectionView.dataSource = self

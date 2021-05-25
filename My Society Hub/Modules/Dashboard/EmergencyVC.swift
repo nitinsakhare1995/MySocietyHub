@@ -19,6 +19,16 @@ class EmergencyVC: BaseViewController {
        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Emergency"
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+    
     func registerNib(){
         tableView.tableFooterView =  UIView()
         tableView.delegate = self

@@ -7,6 +7,12 @@ target 'My Society Hub' do
   
   # Pods for My Society Hub
   pod 'FittedSheets'
+  pod 'IQKeyboardManagerSwift'
+  pod 'DropDown'
+  pod 'AlamofireObjectMapper', '~> 5.2'
+  pod 'TTGSnackbar'
+  pod 'SVProgressHUD'
+  pod 'DLRadioButton', '~> 1.4'
   
   target 'My Society HubTests' do
     inherit! :search_paths

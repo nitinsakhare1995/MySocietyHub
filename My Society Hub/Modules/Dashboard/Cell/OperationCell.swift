@@ -9,9 +9,12 @@ import UIKit
 
 class OperationCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet weak var imgMenu: UIImageView!
+    @IBOutlet weak var lblMenu: UILabel!
+    
+    func configureCell(_ model: menuItemsModel){
+        lblMenu.text = model.name
+        imgMenu.image = model.image
     }
-
+    
 }

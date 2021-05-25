@@ -24,6 +24,8 @@ class DashboardVC: UIViewController {
     let operationItemSpacing = CGFloat(50)
     var operationItemHeight = CGFloat(0)
     var operationItemWidth = CGFloat(0)
+    
+    private var menuData = [menuItemsModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,18 @@ class DashboardVC: UIViewController {
         setupNoticeCollectionView()
         setupOperationCollectionView()
         setupServicesCollectionView()
-        
+        setupMenuData()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
+
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        navigationController?.setNavigationBarHidden(false, animated: animated)
+//    }
     
     func registerNib() {
         noticeCollectionView.delegate = self
@@ -60,6 +72,13 @@ class DashboardVC: UIViewController {
         noticePageControl.numberOfPages = 4
     }
 
+    func setupMenuData(){
+        menuData.append(menuItemsModel(name: "Pay now", image: #imageLiteral(resourceName: "debit_card")))
+        menuData.append(menuItemsModel(name: "My Account", image: #imageLiteral(resourceName: "my_account")))
+        menuData.append(menuItemsModel(name: "Complaint", image: #imageLiteral(resourceName: "complaint")))
+        menuData.append(menuItemsModel(name: "Notice", image: #imageLiteral(resourceName: "notice")))
+        menuData.append(menuItemsModel(name: "Emergency", image: #imageLiteral(resourceName: "emergency")))
+    }
 
 }
 
@@ -70,7 +89,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
         case self.noticeCollectionView:
             return 4
         case self.iconsCollectionView:
-            return 4
+            return menuData.count
         case self.operationImagesCollectionView:
             return 4
         case self.servicesImagesCollectionView:
@@ -87,6 +106,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell
         case self.iconsCollectionView:
             let cell = iconsCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.operationCell, for: indexPath) as! OperationCell
+            cell.configureCell(menuData[indexPath.item])
             return cell
         case self.operationImagesCollectionView:
             let cell = operationImagesCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.imageCollectionCell, for: indexPath) as! ImageCollectionCell
@@ -121,6 +141,39 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
         self.noticePageControl.currentPage = Int(newPage)
         let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
         targetContentOffset.pointee = point
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case self.noticeCollectionView:
+            print("Error")
+        case self.iconsCollectionView:
+            switch indexPath.item{
+            case 0:
+                let vc = PayNowVC.instantiate(from: .dashboard)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 1:
+                let vc = MyAccountVC.instantiate(from: .userAccount)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 2:
+                let vc = ComplaintVC.instantiate(from: .noticeComplaint)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 3:
+                let vc = NoticeVC.instantiate(from: .noticeComplaint)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case 4:
+                let vc = EmergencyVC.instantiate(from: .dashboard)
+                self.navigationController?.pushViewController(vc, animated: true)
+            default:
+                print("Error")
+            }
+        case self.operationImagesCollectionView:
+            print("Error")
+        case self.servicesImagesCollectionView:
+            print("Error")
+        default:
+            print("Error")
+        }
     }
     
 }

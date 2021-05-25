@@ -10,23 +10,22 @@ import UIKit
 class ChangePasswordVC: BaseViewController {
 
     @IBOutlet weak var tiltView: UIView!
-    @IBOutlet weak var lblAppName: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setAttributeText()
 //        tiltView.rotate(degrees: -45)
         
     }
-    
-    func setAttributeText(){
-        let appName = NSMutableAttributedString.init(string: LocalizedString.appName)
-        appName.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 32),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black],
-                                     range: NSMakeRange(0, 2))
-        lblAppName.attributedText = appName
-
+    @IBAction func btnChangePasswordTapped(_ sender: UIButton) {
+        setRootAsLoginScreen()
     }
-
+    
+    func setRootAsLoginScreen() {
+        let loginVC = LoginVC.instantiate(from: .login)
+        self.navigationController?.viewControllers = [loginVC]
+        windowSceneDelegate?.window?.rootViewController = navigationController
+        windowSceneDelegate?.window?.makeKeyAndVisible()
+    }
+    
 }

@@ -259,7 +259,7 @@
         <!--Item 1-->
         <scene sceneID="vE5-Qh-slP">
             <objects>
-                <viewController id="Em8-8y-QAi" customClass="PayNowVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PayNowVC" id="Em8-8y-QAi" customClass="PayNowVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DnG-8j-4Xj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
