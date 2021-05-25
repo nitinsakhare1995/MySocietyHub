@@ -10,22 +10,30 @@ import UIKit
 class ForgotPasswordVC: BaseViewController {
 
     @IBOutlet weak var tiltView: UIView!
-    @IBOutlet weak var lblAppName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setAttributeText()
-//        tiltView.rotate(degrees: -45)
-        
+//        tiltView.rotate(degrees: -40)
     }
     
-    func setAttributeText(){
-        let appName = NSMutableAttributedString.init(string: LocalizedString.appName)
-        appName.setAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 32),
-                                      NSAttributedString.Key.foregroundColor: UIColor.black],
-                                     range: NSMakeRange(0, 2))
-        lblAppName.attributedText = appName
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
 
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.barTintColor = UIColor.appOrangeColor()
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for:.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.layoutIfNeeded()
     }
+    
+    @IBAction func btnSendOTPTapped(_ sender: Any) {
+        let vc = ChangePasswordVC.instantiate(from: .login)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+
 }
