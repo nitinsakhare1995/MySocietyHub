@@ -246,6 +246,8 @@
                     <size key="freeformSize" width="414" height="1080"/>
                     <connections>
                         <outlet property="iconsCollectionView" destination="HBc-Hi-Zna" id="IQk-hZ-L6X"/>
+                        <outlet property="lblSocietyName" destination="SGI-y6-e96" id="aT0-c6-gWg"/>
+                        <outlet property="lblUserName" destination="Ti0-p5-I5L" id="zaA-ls-W9b"/>
                         <outlet property="noticeCollectionView" destination="Lcy-we-1HN" id="r3t-di-eJV"/>
                         <outlet property="noticePageControl" destination="0pm-tj-RfZ" id="Ljr-2m-3MR"/>
                         <outlet property="operationImagesCollectionView" destination="NPT-B4-9bc" id="QyR-CZ-HPy"/>

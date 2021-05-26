@@ -27,9 +27,12 @@ public enum APIRequest: URLRequestConvertible {
     case loginUser(username: String, password: String)
     case forgotPassword(username: String)
     case changePassword(otp: Int, username: String, password: String, enc: String)
+    case getUserData
     
     var method: HTTPMethod {
         switch self {
+        case .getUserData:
+            return .get
         default:
             return .post
         }
@@ -43,6 +46,8 @@ public enum APIRequest: URLRequestConvertible {
             return "prelogin/sendptoemail"
         case .changePassword:
             return "prelogin/cp"
+        case .getUserData:
+            return "business/CustomerDetails?Basic=1"
         }
     }
     
@@ -78,12 +83,12 @@ public enum APIRequest: URLRequestConvertible {
         request.allHTTPHeaderFields = headers
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
-        //        switch self{
-        //        case .getUsersList, .getUserProfile, .getUserPermissionList:
-        //            return try URLEncoding.default.encode(request, with: parameters)
-        //        default:
-        return try JSONEncoding.default.encode(request, with: parameters)
-        //        }
+        switch self{
+        case .getUserData:
+            return try URLEncoding.default.encode(request, with: parameters)
+        default:
+            return try JSONEncoding.default.encode(request, with: parameters)
+        }
     }
     
 }

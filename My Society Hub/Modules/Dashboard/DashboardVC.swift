@@ -8,12 +8,15 @@
 import UIKit
 
 class DashboardVC: UIViewController {
-
+    
     @IBOutlet weak var noticeCollectionView: UICollectionView!
     @IBOutlet weak var noticePageControl: UIPageControl!
     @IBOutlet weak var iconsCollectionView: UICollectionView!
     @IBOutlet weak var operationImagesCollectionView: UICollectionView!
     @IBOutlet weak var servicesImagesCollectionView: UICollectionView!
+    
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var lblSocietyName: UILabel!
     
     let noticeCollectionMargin = CGFloat(0)
     let noticeItemSpacing = CGFloat(50)
@@ -26,27 +29,22 @@ class DashboardVC: UIViewController {
     var operationItemWidth = CGFloat(0)
     
     private var menuData = [menuItemsModel]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        lblUserName.text = ""
+        lblSocietyName.text = ""
+        
         setupPageControl()
         registerNib()
         setupNoticeCollectionView()
         setupOperationCollectionView()
         setupServicesCollectionView()
         setupMenuData()
+        
+        getUserData()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
-
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
     
     func registerNib() {
         noticeCollectionView.delegate = self
@@ -71,7 +69,7 @@ class DashboardVC: UIViewController {
         noticePageControl.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         noticePageControl.numberOfPages = 4
     }
-
+    
     func setupMenuData(){
         menuData.append(menuItemsModel(name: "Pay now", image: #imageLiteral(resourceName: "debit_card")))
         menuData.append(menuItemsModel(name: "My Account", image: #imageLiteral(resourceName: "my_account")))
@@ -79,7 +77,14 @@ class DashboardVC: UIViewController {
         menuData.append(menuItemsModel(name: "Notice", image: #imageLiteral(resourceName: "notice")))
         menuData.append(menuItemsModel(name: "Emergency", image: #imageLiteral(resourceName: "emergency")))
     }
-
+    
+    func getUserData(){
+        Remote.shared.getUserData { data in
+            self.lblUserName.text = data?.table?.first?.customerName
+            self.lblSocietyName.text = data?.table?.first?.locationName
+        }
+    }
+    
 }
 
 extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -221,5 +226,5 @@ extension DashboardVC {
         servicesImagesCollectionView?.collectionViewLayout = layout
         servicesImagesCollectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
     }
-
+    
 }
