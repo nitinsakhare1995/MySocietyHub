@@ -49,6 +49,7 @@
 		877F93432659757F00826C36 /* NoticeBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877F93412659757F00826C36 /* NoticeBoardCell.xib */; };
 		877F934626597C8F00826C36 /* OperationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877F934426597C8F00826C36 /* OperationCell.swift */; };
 		877F934726597C8F00826C36 /* OperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 877F934526597C8F00826C36 /* OperationCell.xib */; };
+		8793C60E265E7FDF002ABCFB /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8793C60D265E7FDF002ABCFB /* Date+Extension.swift */; };
 		87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE652657847000562DF8 /* Constants+Identifiers.swift */; };
 		87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */; };
 		87A7EE6A265784C100562DF8 /* StartAppPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */; };
@@ -146,6 +147,7 @@
 		877F93412659757F00826C36 /* NoticeBoardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeBoardCell.xib; sourceTree = "<group>"; };
 		877F934426597C8F00826C36 /* OperationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationCell.swift; sourceTree = "<group>"; };
 		877F934526597C8F00826C36 /* OperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OperationCell.xib; sourceTree = "<group>"; };
+		8793C60D265E7FDF002ABCFB /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		87A7EE652657847000562DF8 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
 		87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppPagerCell.swift; sourceTree = "<group>"; };
 		87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartAppPagerCell.xib; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 				87A7EE6C265785AB00562DF8 /* UIView+Extension.swift */,
 				87A7EE7C2657954600562DF8 /* UIStoryboard+Extensions.swift */,
 				87D71725265E240600CB774D /* UIImage+Extension.swift */,
+				8793C60D265E7FDF002ABCFB /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				8727284E265A73490096499F /* GlobalHelper.swift in Sources */,
 				877F93422659757F00826C36 /* NoticeBoardCell.swift in Sources */,
 				87D7172C265E516400CB774D /* SignatoryModel.swift in Sources */,
+				8793C60E265E7FDF002ABCFB /* Date+Extension.swift in Sources */,
 				87D7172A265E342400CB774D /* UserModel.swift in Sources */,
 				8724FE1C265A6D8D0032BB07 /* SignatoryDetailsCell.swift in Sources */,
 				87A7EE79265793C500562DF8 /* LoginVC.swift in Sources */,

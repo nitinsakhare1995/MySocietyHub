@@ -31,6 +31,7 @@ class NoticeVC: BaseViewController {
         addBarbuttonItem()
         registerNib()
         getNoticeList()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,4 +89,3 @@ extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
 }
-

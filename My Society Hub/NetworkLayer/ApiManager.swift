@@ -11,12 +11,17 @@ import Alamofire
 enum Constants: String {
     case baseURLPath
     case accessToken
+    case todaysDate
+    case lastYearDate
     
     var rawValue: String {
         get {
             switch self {
             case .baseURLPath: return AppSettings.baseUrl
             case .accessToken: return "Bearer " + (UserDefaults.standard.string(forKey: DefaultKeys.UDAccessToken) ?? "")
+            case .todaysDate: return Date().string(format: "yyyy-MM-dd")
+            case .lastYearDate: let earlyDate = Calendar.current.date(byAdding: .year, value: -1, to: Date())
+                return earlyDate?.getFormattedDate(format: "yyyy-MM-dd") ?? ""
             }
         }
     }
@@ -57,9 +62,9 @@ public enum APIRequest: URLRequestConvertible {
         case .getBillSlab:
             return "business/WidgetData?Code=DBS"
         case .getNoticeList(let pageSize):
-            return "business/NoticeBoard?NoticeTypeID=-1&NoticeSubject=&FromDate=2020-11-15&ToDate=2021-05-15&Records=10&PageSize=\(pageSize)"
+            return "business/NoticeBoard?NoticeTypeID=-1&NoticeSubject=&FromDate=\(Constants.lastYearDate.rawValue)&ToDate=\(Constants.todaysDate.rawValue)&Records=10&PageSize=\(pageSize)"
         case .getComplaintList(let pageSize):
-            return "business/ComplaintRegistry?ComplaintNatureID=-1&ComplaintTypeID=-1&CategoryID=-1&FromDate=2019-05-01&ToDate=2021-05-01&Records=10&PageSize=\(pageSize)&OnBehalfCustomerID=-1"
+            return "business/ComplaintRegistry?ComplaintNatureID=-1&ComplaintTypeID=-1&CategoryID=-1&FromDate=\(Constants.lastYearDate.rawValue)&ToDate=\(Constants.todaysDate.rawValue)&Records=10&PageSize=\(pageSize)&OnBehalfCustomerID=-1"
         }
     }
     

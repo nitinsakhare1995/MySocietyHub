@@ -6,16 +6,30 @@
 //
 
 import UIKit
+import FittedSheets
 
 class ComplaintVC: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var data = [NoticeTableModel]()
+    
+    let columnLayout = ColumnFlowLayout(
+        cellsPerRow: 2,
+        itemHeight: 190,
+        minimumInteritemSpacing: 0,
+        minimumLineSpacing: 0,
+        sectionInset: UIEdgeInsets(top: 6, left: 6, bottom: 0, right: 6)
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView?.collectionViewLayout = columnLayout
+        collectionView?.contentInsetAdjustmentBehavior = .always
+        addBarbuttonItem()
         registerNib()
-        
+        getComplaintList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,33 +42,48 @@ class ComplaintVC: BaseViewController {
         self.title = ""
     }
     
+    func addBarbuttonItem(){
+        let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "add"), style: .plain, target: self, action: #selector(addNewComplaint))//Change your function name and image name here
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
     func registerNib(){
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: AppIdentifiers.complaintCell, bundle: nil), forCellWithReuseIdentifier: AppIdentifiers.complaintCell)
     }
     
+    func getComplaintList(){
+        Remote.shared.getComplaintList(pageSize: 1) { data in
+            self.data = data?.table ?? []
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+        }
+    }
+    
+    @objc func addNewComplaint() {
+        print("Left bar button item")
+    }
+    
 }
-
 
 extension ComplaintVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return self.data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.complaintCell, for: indexPath) as! ComplaintCell
+        cell.configureCell(data[indexPath.row])
         return cell
     }
     
-}
-
-extension ComplaintVC: UICollectionViewDelegateFlowLayout {
-    
-    func ComplaintVC(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width  = (view.frame.width-20)/2
-        return CGSize(width: collectionView.bounds.size.width/2, height: width)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sheetController = SheetViewController(controller: ComplaintDetailsVC.instantiate(from: .noticeComplaint), sizes: [.marginFromTop(100)])
+        self.present(sheetController, animated: true, completion: nil)
     }
-
+    
 }
