@@ -61,12 +61,12 @@ class NoticeVC: BaseViewController {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-            
         }
     }
     
     @objc func addNewNotice() {
-        print("Left bar button item")
+        let controller = NewNoticeVC.instantiate(from: .noticeComplaint)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }
@@ -84,7 +84,9 @@ extension NoticeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sheetController = SheetViewController(controller: NoticeDetailsVC.instantiate(from: .noticeComplaint), sizes: [.marginFromTop(100)])
+        let controller = NoticeDetailsVC.instantiate(from: .noticeComplaint)
+        controller.data = self.data[indexPath.row]
+        let sheetController = SheetViewController(controller: controller, sizes: [.marginFromTop(100)])
         self.present(sheetController, animated: true, completion: nil)
     }
     

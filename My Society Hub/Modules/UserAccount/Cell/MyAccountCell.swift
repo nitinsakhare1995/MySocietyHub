@@ -8,16 +8,16 @@
 import UIKit
 
 class MyAccountCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBOutlet weak var lblItem: UILabel!
+    @IBOutlet weak var imgItem: UIImageView!
+    @IBOutlet weak var imgNext: UIImageView!
+    
+    func configureCell(_ model: menuItemsModel) {
+        imgNext.image = #imageLiteral(resourceName: "right_arrow").maskWithColor(color: .blueBorderColor())
+        lblItem.text = model.name
+        imgItem.image = model.image
+        
     }
     
 }
