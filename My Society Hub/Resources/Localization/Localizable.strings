@@ -6,7 +6,7 @@
   
 */
 
-//Pager Strings
+// Pager Strings
 "memberName" = "Member Features";
 "memberDesc" = "Keep member details in the app only";
 "complaintName" = "Complaint Features";
@@ -16,6 +16,9 @@
 "billName" = "Bill Management";
 "billDesc" = "You can pay your bill from this app";
 
-//App name
+// App name
 "appName" = "My Society Hub";
 
+// Api Error
+
+"error"  = "Something went wrong";

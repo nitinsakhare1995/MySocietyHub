@@ -36,15 +36,15 @@ public enum APIRequest: URLRequestConvertible {
     var path: String {
         switch self {
         case .loginUser:
-            return "api/users/login"
+            return "token"
         }
     }
     
     var parameters: Parameters {
         switch self {
         case .loginUser(let username, let password):
-            return ["username": username,
-                    "password": password]
+            return ["Username": username,
+                    "Password": password]
         default:
             return [:]
         }

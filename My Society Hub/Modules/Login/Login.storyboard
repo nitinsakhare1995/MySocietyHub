@@ -109,7 +109,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7UT-g2-eKo">
                                                                 <rect key="frame" x="50.5" y="0.0" width="269.5" height="43"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqF-OR-jYG">
                                                                 <rect key="frame" x="332" y="11.5" width="20" height="20"/>
@@ -118,6 +118,9 @@
                                                                     <constraint firstAttribute="height" constant="20" id="Bai-1Z-tCY"/>
                                                                 </constraints>
                                                                 <state key="normal" image="viewpass"/>
+                                                                <connections>
+                                                                    <action selector="btnPasswordShowHideTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Xcn-aM-F83"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -241,7 +244,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="nIs-JU-FrT"/>
                     <connections>
+                        <outlet property="btnPassword" destination="pqF-OR-jYG" id="twH-YL-X8D"/>
+                        <outlet property="imgPassword" destination="bmw-2G-yZR" id="nCu-cT-XXj"/>
+                        <outlet property="imgUser" destination="nUi-nL-wed" id="BR5-UK-tdl"/>
+                        <outlet property="passwordTF" destination="7UT-g2-eKo" id="HSd-fu-i1j"/>
                         <outlet property="tiltView" destination="oeX-7T-Y41" id="wEU-Kx-78b"/>
+                        <outlet property="usernameTF" destination="hpo-s9-IWt" id="hqm-lq-E3C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
