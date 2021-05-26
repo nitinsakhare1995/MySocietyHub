@@ -507,6 +507,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvL-fu-bWL">
                                                                         <rect key="frame" x="0.0" y="0.0" width="191" height="44"/>
+                                                                        <connections>
+                                                                            <action selector="btnSelectComplaintNatureTapped:" destination="1oq-Pn-XaI" eventType="touchUpInside" id="zWV-E6-PbG"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -567,6 +570,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efX-Uq-d8y">
                                                                         <rect key="frame" x="0.0" y="0.0" width="191" height="44"/>
+                                                                        <connections>
+                                                                            <action selector="btnComplaintTypeTapped:" destination="1oq-Pn-XaI" eventType="touchUpInside" id="5c2-Rz-ZJp"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -627,6 +633,9 @@
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RyV-gv-05d">
                                                                         <rect key="frame" x="0.0" y="0.0" width="191" height="44"/>
+                                                                        <connections>
+                                                                            <action selector="btnComplaintCategoryTapped:" destination="1oq-Pn-XaI" eventType="touchUpInside" id="Jq0-1s-Z0a"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -690,6 +699,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qba-dK-mxa">
@@ -705,12 +715,15 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfp-e1-1kU">
-                                                        <rect key="frame" x="87" y="42" width="25" height="25"/>
+                                                        <rect key="frame" x="89.5" y="42" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="25" id="4uu-4q-VnJ"/>
-                                                            <constraint firstAttribute="height" constant="25" id="vZv-j6-N9F"/>
+                                                            <constraint firstAttribute="width" constant="20" id="4uu-4q-VnJ"/>
+                                                            <constraint firstAttribute="height" constant="20" id="vZv-j6-N9F"/>
                                                         </constraints>
                                                         <state key="normal" image="add"/>
+                                                        <connections>
+                                                            <action selector="btnAddImageTapped:" destination="1oq-Pn-XaI" eventType="touchUpInside" id="DNm-mb-Dgg"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -726,19 +739,18 @@
                                                 <rect key="frame" x="199" y="0.0" width="199" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-pZ-meC">
-                                                        <rect key="frame" x="79.5" y="10" width="40" height="60"/>
-                                                        <color key="backgroundColor" red="0.70980392160000005" green="0.41960784309999999" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="79.5" y="20" width="40" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="40" id="0vW-6t-udU"/>
+                                                            <constraint firstAttribute="width" constant="40" id="3JP-II-NoK"/>
+                                                            <constraint firstAttribute="height" constant="40" id="xQD-TO-wPP"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="3Xx-pZ-meC" firstAttribute="top" secondItem="gMh-l6-qC5" secondAttribute="top" constant="10" id="2np-bb-cBc"/>
-                                                    <constraint firstAttribute="bottom" secondItem="3Xx-pZ-meC" secondAttribute="bottom" constant="10" id="UCQ-KL-VPV"/>
-                                                    <constraint firstItem="3Xx-pZ-meC" firstAttribute="centerY" secondItem="gMh-l6-qC5" secondAttribute="centerY" id="XnH-MW-caV"/>
-                                                    <constraint firstItem="3Xx-pZ-meC" firstAttribute="centerX" secondItem="gMh-l6-qC5" secondAttribute="centerX" id="mBb-La-uer"/>
+                                                    <constraint firstItem="3Xx-pZ-meC" firstAttribute="centerY" secondItem="gMh-l6-qC5" secondAttribute="centerY" id="QKl-BX-sWx"/>
+                                                    <constraint firstItem="3Xx-pZ-meC" firstAttribute="centerX" secondItem="gMh-l6-qC5" secondAttribute="centerX" id="jAR-YP-Jbc"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -763,6 +775,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnRaiseComplaintTapped:" destination="1oq-Pn-XaI" eventType="touchUpInside" id="HnC-MO-6gu"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
@@ -790,6 +805,16 @@
                             <constraint firstItem="Hn1-LZ-jf7" firstAttribute="bottom" secondItem="EcJ-eJ-OWz" secondAttribute="bottom" id="lza-xl-5dr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAddImage" destination="Jfp-e1-1kU" id="dOD-3I-9bd"/>
+                        <outlet property="descriptionTF" destination="iNi-se-fhU" id="bmW-lc-XGc"/>
+                        <outlet property="imgArrow1" destination="UB9-xF-gjm" id="RP6-c6-C5A"/>
+                        <outlet property="imgArrow2" destination="kQu-Gh-y9Q" id="4as-eV-iTO"/>
+                        <outlet property="imgArrow3" destination="qmR-Ja-SWu" id="kTv-xu-fzC"/>
+                        <outlet property="lblComplaintCategory" destination="pr4-hI-bGH" id="2fY-Ry-iYm"/>
+                        <outlet property="lblComplaintNature" destination="p37-SR-NoB" id="Go0-It-eBG"/>
+                        <outlet property="lblComplaintType" destination="H9e-dk-zjs" id="qr9-MH-iyt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3K-gG-XC9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -824,6 +849,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SuH-Ck-m2T">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
+                                                <connections>
+                                                    <action selector="btnSelectNoticeTapped:" destination="lJA-7o-DWw" eventType="touchUpInside" id="O4W-wQ-0Ga"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -871,6 +899,7 @@
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Description"/>
                                         </userDefinedRuntimeAttributes>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AM8-xb-o1V">
@@ -889,8 +918,17 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice Expire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXN-TX-jpb">
+                                                <rect key="frame" x="264" y="17" width="81" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqO-mK-712">
                                                 <rect key="frame" x="0.0" y="0.0" width="398" height="50"/>
+                                                <connections>
+                                                    <action selector="btnNoticeExpiryTapped:" destination="lJA-7o-DWw" eventType="touchUpInside" id="T46-Ah-NAk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -901,7 +939,9 @@
                                             <constraint firstAttribute="bottom" secondItem="BqO-mK-712" secondAttribute="bottom" id="JjU-hu-EI8"/>
                                             <constraint firstItem="BqO-mK-712" firstAttribute="leading" secondItem="AM8-xb-o1V" secondAttribute="leading" id="VOO-fO-wkA"/>
                                             <constraint firstAttribute="trailing" secondItem="BqO-mK-712" secondAttribute="trailing" id="jY6-np-a07"/>
+                                            <constraint firstItem="9vc-ar-IPE" firstAttribute="leading" secondItem="aXN-TX-jpb" secondAttribute="trailing" constant="20" id="jgz-cK-iGY"/>
                                             <constraint firstItem="hIv-ME-ylf" firstAttribute="leading" secondItem="AM8-xb-o1V" secondAttribute="leading" constant="15" id="kgB-Ad-TzI"/>
+                                            <constraint firstItem="aXN-TX-jpb" firstAttribute="centerY" secondItem="AM8-xb-o1V" secondAttribute="centerY" id="l3h-5a-RP3"/>
                                             <constraint firstItem="BqO-mK-712" firstAttribute="top" secondItem="AM8-xb-o1V" secondAttribute="top" id="nRN-9O-jkO"/>
                                             <constraint firstItem="9vc-ar-IPE" firstAttribute="centerY" secondItem="AM8-xb-o1V" secondAttribute="centerY" id="v8f-DR-NYA"/>
                                         </constraints>
@@ -927,6 +967,9 @@
                                                 <real key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnSubmitNoticeTapped:" destination="lJA-7o-DWw" eventType="touchUpInside" id="rvN-vf-Fgx"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="foq-SN-Sd9">
                                         <rect key="frame" x="8" y="302" width="398" height="80"/>
@@ -941,12 +984,15 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oku-wy-8E9">
-                                                        <rect key="frame" x="87" y="42" width="25" height="25"/>
+                                                        <rect key="frame" x="89.5" y="42" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="25" id="3WZ-E2-ywJ"/>
-                                                            <constraint firstAttribute="width" constant="25" id="OeF-c2-1HR"/>
+                                                            <constraint firstAttribute="height" constant="20" id="3WZ-E2-ywJ"/>
+                                                            <constraint firstAttribute="width" constant="20" id="OeF-c2-1HR"/>
                                                         </constraints>
                                                         <state key="normal" image="add"/>
+                                                        <connections>
+                                                            <action selector="btnAddImageTapped:" destination="lJA-7o-DWw" eventType="touchUpInside" id="PEn-ab-c5I"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -962,19 +1008,18 @@
                                                 <rect key="frame" x="199" y="0.0" width="199" height="80"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6aN-CC-Qe8">
-                                                        <rect key="frame" x="79.5" y="10" width="40" height="60"/>
-                                                        <color key="backgroundColor" red="0.70980392160000005" green="0.41960784309999999" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <rect key="frame" x="79.5" y="20" width="40" height="40"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="40" id="w68-4y-oLz"/>
+                                                            <constraint firstAttribute="height" constant="40" id="0s8-b2-PKh"/>
+                                                            <constraint firstAttribute="width" constant="40" id="6bx-K7-LOu"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="6aN-CC-Qe8" firstAttribute="centerX" secondItem="Z57-tO-Y9o" secondAttribute="centerX" id="9um-Xp-pte"/>
-                                                    <constraint firstItem="6aN-CC-Qe8" firstAttribute="centerY" secondItem="Z57-tO-Y9o" secondAttribute="centerY" id="D6Z-IH-qL6"/>
-                                                    <constraint firstAttribute="bottom" secondItem="6aN-CC-Qe8" secondAttribute="bottom" constant="10" id="moA-Xg-icT"/>
-                                                    <constraint firstItem="6aN-CC-Qe8" firstAttribute="top" secondItem="Z57-tO-Y9o" secondAttribute="top" constant="10" id="y8z-q9-5mo"/>
+                                                    <constraint firstItem="6aN-CC-Qe8" firstAttribute="centerY" secondItem="Z57-tO-Y9o" secondAttribute="centerY" id="mME-M5-aj0"/>
+                                                    <constraint firstItem="6aN-CC-Qe8" firstAttribute="centerX" secondItem="Z57-tO-Y9o" secondAttribute="centerX" id="tRf-nm-1cC"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1015,6 +1060,16 @@
                             <constraint firstItem="NeK-qs-qgQ" firstAttribute="bottom" secondItem="Uuu-TH-eht" secondAttribute="bottom" id="sqr-1A-tgk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnAddImage" destination="Oku-wy-8E9" id="4my-IF-dtO"/>
+                        <outlet property="descriptionTF" destination="Aqv-L0-b54" id="JK6-0F-xiQ"/>
+                        <outlet property="imgArrow" destination="CrY-Vh-E5d" id="MHf-qt-Ie4"/>
+                        <outlet property="imgAttachment" destination="6aN-CC-Qe8" id="hpA-cU-TIM"/>
+                        <outlet property="imgCalendar" destination="9vc-ar-IPE" id="Ul3-KD-y3F"/>
+                        <outlet property="lblNoticType" destination="CEf-n8-tXQ" id="QG9-Gs-ypi"/>
+                        <outlet property="lblNoticeExpire" destination="aXN-TX-jpb" id="ke4-Vo-tXH"/>
+                        <outlet property="noticeNameTF" destination="hAf-AY-X5c" id="bBW-ej-DG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEn-KX-Zoq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

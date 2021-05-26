@@ -223,4 +223,108 @@ class Remote {
             }
     }
     
+    func getNoticeType(completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getNoticeType)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getComplaintNature(completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getComplaintNature)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getComplaintType(completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getComplaintType)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getComplaintCategory(completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getComplaintCategory)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
 }

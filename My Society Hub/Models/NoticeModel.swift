@@ -23,6 +23,7 @@ struct NoticeModel : Mappable {
 }
 
 struct NoticeTableModel : Mappable {
+    var id : String?
     var rowNo : Int?
     var noticeType : String?
     var noticeSubject : String?
@@ -51,6 +52,7 @@ struct NoticeTableModel : Mappable {
 
     mutating func mapping(map: Map) {
 
+        id <- map["ID"]
         rowNo <- map["RowNo"]
         noticeType <- map["NoticeType"]
         noticeSubject <- map["NoticeSubject"]

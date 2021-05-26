@@ -28,6 +28,7 @@
 		87272854265A74F20096499F /* EmergencyNumbersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87272852265A74F20096499F /* EmergencyNumbersCell.xib */; };
 		87272856265A78840096499F /* NoticeDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272855265A78840096499F /* NoticeDetailsVC.swift */; };
 		87272858265A78940096499F /* ComplaintDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87272857265A78940096499F /* ComplaintDetailsVC.swift */; };
+		876246C7265EA4F1009493E3 /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876246C6265EA4F1009493E3 /* UITextView+Extension.swift */; };
 		8779511526597EBA002860F9 /* ImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8779511326597EBA002860F9 /* ImageCollectionCell.swift */; };
 		8779511626597EBA002860F9 /* ImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8779511426597EBA002860F9 /* ImageCollectionCell.xib */; };
 		87795119265984AE002860F9 /* UserAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87795118265984AE002860F9 /* UserAccount.storyboard */; };
@@ -126,6 +127,7 @@
 		87272852265A74F20096499F /* EmergencyNumbersCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmergencyNumbersCell.xib; sourceTree = "<group>"; };
 		87272855265A78840096499F /* NoticeDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailsVC.swift; sourceTree = "<group>"; };
 		87272857265A78940096499F /* ComplaintDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintDetailsVC.swift; sourceTree = "<group>"; };
+		876246C6265EA4F1009493E3 /* UITextView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		8779511326597EBA002860F9 /* ImageCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionCell.swift; sourceTree = "<group>"; };
 		8779511426597EBA002860F9 /* ImageCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionCell.xib; sourceTree = "<group>"; };
 		87795118265984AE002860F9 /* UserAccount.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserAccount.storyboard; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				87A7EE7C2657954600562DF8 /* UIStoryboard+Extensions.swift */,
 				87D71725265E240600CB774D /* UIImage+Extension.swift */,
 				8793C60D265E7FDF002ABCFB /* Date+Extension.swift */,
+				876246C6265EA4F1009493E3 /* UITextView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				87272848265A71260096499F /* EmergencyVC.swift in Sources */,
 				870655D1265A858800BF9904 /* NewNoticeVC.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
+				876246C7265EA4F1009493E3 /* UITextView+Extension.swift in Sources */,
 				87272853265A74F20096499F /* EmergencyNumbersCell.swift in Sources */,
 				877F933E265972EB00826C36 /* PagingCollectionViewLayout.swift in Sources */,
 				870655D3265A859700BF9904 /* NewComplaintVC.swift in Sources */,

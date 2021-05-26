@@ -64,7 +64,8 @@ class ComplaintVC: BaseViewController {
     }
     
     @objc func addNewComplaint() {
-        print("Left bar button item")
+        let controller = NewComplaintVC.instantiate(from: .noticeComplaint)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
 }

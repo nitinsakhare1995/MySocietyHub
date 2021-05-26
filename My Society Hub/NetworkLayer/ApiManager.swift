@@ -37,10 +37,14 @@ public enum APIRequest: URLRequestConvertible {
     case getBillSlab
     case getNoticeList(pageSize:Int)
     case getComplaintList(pageSize:Int)
+    case getNoticeType
+    case getComplaintNature
+    case getComplaintType
+    case getComplaintCategory
     
     var method: HTTPMethod {
         switch self {
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory:
             return .get
         default:
             return .post
@@ -65,6 +69,14 @@ public enum APIRequest: URLRequestConvertible {
             return "business/NoticeBoard?NoticeTypeID=-1&NoticeSubject=&FromDate=\(Constants.lastYearDate.rawValue)&ToDate=\(Constants.todaysDate.rawValue)&Records=10&PageSize=\(pageSize)"
         case .getComplaintList(let pageSize):
             return "business/ComplaintRegistry?ComplaintNatureID=-1&ComplaintTypeID=-1&CategoryID=-1&FromDate=\(Constants.lastYearDate.rawValue)&ToDate=\(Constants.todaysDate.rawValue)&Records=10&PageSize=\(pageSize)&OnBehalfCustomerID=-1"
+        case .getNoticeType:
+            return "business/CodeMasterByType?codetype=NoticeType"
+        case .getComplaintNature:
+        return "business/CodeMasterByType?codetype=ComplaintNature"
+        case .getComplaintType:
+            return "business/CodeMasterByType?codetype=ComplaintType"
+        case .getComplaintCategory:
+            return "business/ComplaintCategory"
         }
     }
     
@@ -101,7 +113,7 @@ public enum APIRequest: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
         switch self{
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory:
             return try URLEncoding.default.encode(request, with: parameters)
         default:
             return try JSONEncoding.default.encode(request, with: parameters)
