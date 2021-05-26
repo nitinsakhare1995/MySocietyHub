@@ -22,6 +22,15 @@ struct LocalizedString {
     // App Name
     static let appName = "appName".localized()
     
-    // APi
+    // Api
     static let apiError = "error".localized()
+    
+    //Validation
+    static let mobile = "mobile".localized()
+    static let email = "email".localized()
+    static let username = "username".localized()
+    static let validEmailPhone = "validEmailPhone".localized()
+    static let password = "password".localized()
+    static let validEmail = "validEmail".localized()
+    static let otp = "otp".localized()
 }

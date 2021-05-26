@@ -25,6 +25,8 @@ enum Constants: String {
 public enum APIRequest: URLRequestConvertible {
     
     case loginUser(username: String, password: String)
+    case forgotPassword(username: String)
+    case changePassword(otp: Int, username: String, password: String, enc: String)
     
     var method: HTTPMethod {
         switch self {
@@ -37,6 +39,10 @@ public enum APIRequest: URLRequestConvertible {
         switch self {
         case .loginUser:
             return "token"
+        case .forgotPassword:
+            return "prelogin/sendptoemail"
+        case .changePassword:
+            return "prelogin/cp"
         }
     }
     
@@ -45,6 +51,13 @@ public enum APIRequest: URLRequestConvertible {
         case .loginUser(let username, let password):
             return ["Username": username,
                     "Password": password]
+        case .forgotPassword(let username):
+            return ["Username": username]
+        case .changePassword(let otp, let password, let username, let enc):
+            return ["Username": username,
+                    "Password": password,
+                    "Enc": enc,
+                    "OTP": otp]
         default:
             return [:]
         }

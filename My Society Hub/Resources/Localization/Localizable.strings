@@ -20,5 +20,13 @@
 "appName" = "My Society Hub";
 
 // Api Error
-
 "error"  = "Something went wrong";
+
+// Validation
+"mobile" = "Please enter Mobile number";
+"email" = "Please enter Email id";
+"username" = "Please enter Mobile number or Email id";
+"validEmailPhone" = "Mobile number or Email id invalid";
+"validEmail" = "Email id invalid";
+"password" = "Please enter password";
+"otp" = "Please enter OTP";

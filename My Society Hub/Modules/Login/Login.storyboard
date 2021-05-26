@@ -425,6 +425,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="qsP-KF-ThN"/>
                     <connections>
+                        <outlet property="emailTF" destination="Zh3-xz-R2p" id="j5A-Yx-gia"/>
+                        <outlet property="imgEmail" destination="WR6-q8-C0l" id="R8b-rw-5WW"/>
                         <outlet property="tiltView" destination="b9Y-6S-vlO" id="I9A-8R-xpH"/>
                     </connections>
                 </viewController>
@@ -473,7 +475,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="OTP" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z7q-Yu-BUn">
                                                                 <rect key="frame" x="50.5" y="0.0" width="301.5" height="43"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                                             </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -532,7 +534,7 @@
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NcX-gK-ZPB">
                                                                 <rect key="frame" x="50.5" y="0.0" width="269.5" height="43"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-1D-bVF">
                                                                 <rect key="frame" x="332" y="11.5" width="20" height="20"/>
@@ -541,6 +543,9 @@
                                                                     <constraint firstAttribute="width" constant="20" id="rT1-xG-aYb"/>
                                                                 </constraints>
                                                                 <state key="normal" image="viewpass"/>
+                                                                <connections>
+                                                                    <action selector="btnShowHidePasswordTapped:" destination="jxK-Tb-yrp" eventType="touchUpInside" id="qnX-1q-VFu"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -652,6 +657,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="bMi-vp-0bc"/>
                     <connections>
+                        <outlet property="btnShowPassword" destination="c0O-1D-bVF" id="bB8-Aw-hnj"/>
+                        <outlet property="imgOTP" destination="XhG-A0-hLm" id="FOO-qb-LKm"/>
+                        <outlet property="imgPassword" destination="DKS-qX-7Fs" id="ZBA-Gh-f3O"/>
+                        <outlet property="otpTF" destination="Z7q-Yu-BUn" id="8Dl-w0-yQe"/>
+                        <outlet property="passwordTF" destination="NcX-gK-ZPB" id="UTU-Zh-vLd"/>
                         <outlet property="tiltView" destination="mng-4q-lbP" id="cPi-kk-QWw"/>
                     </connections>
                 </viewController>

@@ -19,20 +19,81 @@ class Remote {
         SVProgressHUD.show()
         Alamofire.request(APIRequest.loginUser(username: username, password: password))
             .responseJSON { response in
-                SVProgressHUD.dismiss()
-                switch(response.result) {
-                case .success(_):
-                    if response.result.value != nil{
-                        print(response.result.value!)
-                        let apiResponse = Mapper<LoginModel>().map(JSONObject: response.result.value)
-                        completion(apiResponse)
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<LoginModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
                     }
-                    break
-                case .failure(_):
+                }else{
                     showSnackBar(with: LocalizedString.apiError, duration: .middle)
-                    print(response.result.error!)
-                    break
+                    SVProgressHUD.dismiss()
                 }
             }
+        
     }
+    
+    func forgotPassword(username: String, completion: @escaping (PasswordModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.forgotPassword(username: username))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<PasswordModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+        
+    }
+    
+    func changePassword(otp: Int, username: String, password: String, enc: String, completion: @escaping (PasswordTableModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.changePassword(otp: otp, username: username, password: password, enc: enc))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<PasswordTableModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+        
+    }
+    
 }
