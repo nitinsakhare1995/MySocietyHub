@@ -25,3 +25,15 @@ public func callNumber(phoneNumber:String) {
     }
   }
 }
+
+public func showDate(createdAt: String, dateFormat: String) -> String {
+    let dateFormatterGet = DateFormatter()
+    dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    let dateFormatterPrint = DateFormatter()
+    dateFormatterPrint.dateFormat = dateFormat
+    if let date = dateFormatterGet.date(from: createdAt) {
+        return dateFormatterPrint.string(from: date)
+    } else {
+        return ""
+    }
+}

@@ -28,10 +28,14 @@ public enum APIRequest: URLRequestConvertible {
     case forgotPassword(username: String)
     case changePassword(otp: Int, username: String, password: String, enc: String)
     case getUserData
+    case getSignatoryDetails
+    case getBillSlab
+    case getNoticeList(pageSize:Int)
+    case getComplaintList(pageSize:Int)
     
     var method: HTTPMethod {
         switch self {
-        case .getUserData:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList:
             return .get
         default:
             return .post
@@ -48,6 +52,14 @@ public enum APIRequest: URLRequestConvertible {
             return "prelogin/cp"
         case .getUserData:
             return "business/CustomerDetails?Basic=1"
+        case .getSignatoryDetails:
+            return "business/WidgetData?Code=DSD"
+        case .getBillSlab:
+            return "business/WidgetData?Code=DBS"
+        case .getNoticeList(let pageSize):
+            return "business/NoticeBoard?NoticeTypeID=-1&NoticeSubject=&FromDate=2020-11-15&ToDate=2021-05-15&Records=10&PageSize=\(pageSize)"
+        case .getComplaintList(let pageSize):
+            return "business/ComplaintRegistry?ComplaintNatureID=-1&ComplaintTypeID=-1&CategoryID=-1&FromDate=2019-05-01&ToDate=2021-05-01&Records=10&PageSize=\(pageSize)&OnBehalfCustomerID=-1"
         }
     }
     
@@ -84,7 +96,7 @@ public enum APIRequest: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
         switch self{
-        case .getUserData:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList:
             return try URLEncoding.default.encode(request, with: parameters)
         default:
             return try JSONEncoding.default.encode(request, with: parameters)

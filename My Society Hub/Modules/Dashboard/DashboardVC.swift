@@ -153,20 +153,20 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
         case self.noticeCollectionView:
             print("Error")
         case self.iconsCollectionView:
-            switch indexPath.item{
-            case 0:
+            switch self.menuData[indexPath.item].name{
+            case "Pay now":
                 let vc = PayNowVC.instantiate(from: .dashboard)
                 self.navigationController?.pushViewController(vc, animated: true)
-            case 1:
+            case "My Account":
                 let vc = MyAccountVC.instantiate(from: .userAccount)
                 self.navigationController?.pushViewController(vc, animated: true)
-            case 2:
+            case "Complaint":
                 let vc = ComplaintVC.instantiate(from: .noticeComplaint)
                 self.navigationController?.pushViewController(vc, animated: true)
-            case 3:
+            case "Notice":
                 let vc = NoticeVC.instantiate(from: .noticeComplaint)
                 self.navigationController?.pushViewController(vc, animated: true)
-            case 4:
+            case "Emergency":
                 let vc = EmergencyVC.instantiate(from: .dashboard)
                 self.navigationController?.pushViewController(vc, animated: true)
             default:

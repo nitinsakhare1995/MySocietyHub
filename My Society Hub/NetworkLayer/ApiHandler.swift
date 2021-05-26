@@ -39,7 +39,6 @@ class Remote {
                     SVProgressHUD.dismiss()
                 }
             }
-        
     }
     
     func forgotPassword(username: String, completion: @escaping (PasswordModel?) -> Void){
@@ -66,7 +65,6 @@ class Remote {
                     SVProgressHUD.dismiss()
                 }
             }
-        
     }
     
     func changePassword(otp: Int, username: String, password: String, enc: String, completion: @escaping (PasswordTableModel?) -> Void){
@@ -93,7 +91,6 @@ class Remote {
                     SVProgressHUD.dismiss()
                 }
             }
-        
     }
     
     func getUserData(completion: @escaping (UserModel?) -> Void){
@@ -120,7 +117,110 @@ class Remote {
                     SVProgressHUD.dismiss()
                 }
             }
-        
+    }
+    
+    func getSignatoryDetails(completion: @escaping (SignatoryModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getSignatoryDetails)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<SignatoryModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getBillSlab(completion: @escaping (SignatoryModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getBillSlab)
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<SignatoryModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getNoticeList(pageSize: Int, completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getNoticeList(pageSize: pageSize))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func getComplaintList(pageSize: Int, completion: @escaping (NoticeModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getComplaintList(pageSize: pageSize))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<NoticeModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
     }
     
 }

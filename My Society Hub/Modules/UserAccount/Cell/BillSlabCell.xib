@@ -29,8 +29,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WiE-RE-rUi">
-                                <rect key="frame" x="354" y="31.5" width="36" height="14.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <rect key="frame" x="355.5" y="32" width="34.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                 <color key="textColor" name="appOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -68,6 +68,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="lblAccount" destination="RKc-r0-qEX" id="L7i-uU-3o2"/>
+                <outlet property="lblAmount" destination="WiE-RE-rUi" id="pKM-Nf-kKr"/>
                 <outlet property="mainView" destination="dDC-0B-udu" id="oxb-ti-rRW"/>
             </connections>
             <point key="canvasLocation" x="208.69565217391306" y="134.26339285714286"/>
