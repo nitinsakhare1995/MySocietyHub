@@ -45,7 +45,6 @@ class MyAccountVC: BaseViewController {
         accountList.append(menuItemsModel(name: "Signatory Details", image: #imageLiteral(resourceName: "man")))
         accountList.append(menuItemsModel(name: "Complaint", image: #imageLiteral(resourceName: "complaint")))
         accountList.append(menuItemsModel(name: "Notice", image: #imageLiteral(resourceName: "emergency")))
-        accountList.append(menuItemsModel(name: "Family Member", image: #imageLiteral(resourceName: "family")))
         self.tableView.reloadData()
     }
 
@@ -72,12 +71,19 @@ extension MyAccountVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch self.accountList[indexPath.row].name {
         case "Mini Statement":
-            print("Error")
+            let vc = MiniStatementVC.instantiate(from: .userAccount)
+            self.navigationController?.pushViewController(vc, animated: true)
         case "Signatory Details":
             let vc = SignatoryDetailsVC.instantiate(from: .userAccount)
             self.navigationController?.pushViewController(vc, animated: true)
         case "Bill Slab":
             let vc = BillSlabVC.instantiate(from: .userAccount)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case "Complaint":
+            let vc = ComplaintVC.instantiate(from: .noticeComplaint)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case "Notice":
+            let vc = NoticeVC.instantiate(from: .noticeComplaint)
             self.navigationController?.pushViewController(vc, animated: true)
         default:
             print("Error")

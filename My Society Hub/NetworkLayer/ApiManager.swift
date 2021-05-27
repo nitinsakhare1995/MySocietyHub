@@ -41,10 +41,11 @@ public enum APIRequest: URLRequestConvertible {
     case getComplaintNature
     case getComplaintType
     case getComplaintCategory
+    case getMiniStatement(toDate: String, fromDate: String)
     
     var method: HTTPMethod {
         switch self {
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement:
             return .get
         default:
             return .post
@@ -77,6 +78,8 @@ public enum APIRequest: URLRequestConvertible {
             return "business/CodeMasterByType?codetype=ComplaintType"
         case .getComplaintCategory:
             return "business/ComplaintCategory"
+        case .getMiniStatement(let toDate, let fromDate):
+            return "report/GetCustomerReportData?FromDate=\(fromDate)&Report=1&ToDate=\(toDate)&UserID="
         }
     }
     
@@ -113,7 +116,7 @@ public enum APIRequest: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
         switch self{
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement:
             return try URLEncoding.default.encode(request, with: parameters)
         default:
             return try JSONEncoding.default.encode(request, with: parameters)

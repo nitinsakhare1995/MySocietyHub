@@ -19,4 +19,6 @@ struct AppIdentifiers {
     static let signatoryDetailsCell = "SignatoryDetailsCell"
     static let emergencyCell = "EmergencyCell"
     static let emergencyNumbersCell = "EmergencyNumbersCell"
+    static let miniStatementCell = "MiniStatementCell"
+    static let miniStatementHeaderCell = "MiniStatementHeaderCell"
 }

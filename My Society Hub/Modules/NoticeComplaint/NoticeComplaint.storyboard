@@ -240,7 +240,7 @@
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tdr-dJ-bTf">
                                 <rect key="frame" x="20" y="335.5" width="40" height="40"/>
-                                <color key="backgroundColor" red="0.87843137250000003" green="0.87450980389999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="mMZ-8D-e4g"/>
                                     <constraint firstAttribute="height" constant="40" id="wqi-LG-2eI"/>
