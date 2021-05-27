@@ -8,26 +8,33 @@
 import UIKit
 import DropDown
 
-class NewNoticeVC: BaseViewController {
+class NewNoticeVC: BaseViewController, UITextFieldDelegate {
     
     @IBOutlet weak var imgAttachment: UIImageView!
     @IBOutlet weak var btnAddImage: UIButton!
     @IBOutlet weak var lblNoticType: UILabel!
     @IBOutlet weak var noticeNameTF: UITextField!
     @IBOutlet weak var descriptionTF: UITextView!
-    @IBOutlet weak var lblNoticeExpire: UILabel!
     @IBOutlet weak var imgArrow: UIImageView!
     @IBOutlet weak var imgCalendar: UIImageView!
+    @IBOutlet weak var noticeExpiryTF: UITextField!
     
     var noticeTypeDropdown = DropDown()
     var noticeTypelist = [NoticeTableModel]()
+    
+    let datePicker = UIDatePicker()
     
     var selectedNoticeId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblNoticeExpire.text = ""
+        datePicker.maximumDate = Date()
+        
+        noticeExpiryTF.delegate = self
+        noticeExpiryTF.tintColor = .clear
+        
+        showDatePicker()
         
         getNoticeTypeList()
         
@@ -50,19 +57,72 @@ class NewNoticeVC: BaseViewController {
         noticeTypeDropdown.show()
     }
     
-    @IBAction func btnNoticeExpiryTapped(_ sender: UIButton) {
-        
-    }
-    
     @IBAction func btnSubmitNoticeTapped(_ sender: UIButton) {
-        
+        if validateTextFields(){
+            print("API here")
+        }
     }
     
     @IBAction func btnAddImageTapped(_ sender: UIButton) {
+        let picker = FilePicker.instantiate(with: [.camera, .gallery])
+        picker.modalPresentationStyle = .overCurrentContext
+        self.present(picker, animated: true, completion: nil)
+        picker.didSelectImageAttachment = { attachment in
+            self.imgAttachment.image = attachment.image
+            //            self.uploadProfileImageOnServer(image: attachment.image)
+        }
     }
     
+    func showDatePicker(){
+        datePicker.datePickerMode = .date
+        if #available(iOS 13.4, *) {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItem.Style.done, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
+        noticeExpiryTF.inputAccessoryView = toolbar
+        noticeExpiryTF.inputView = datePicker
+    }
     
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        noticeExpiryTF.text = formatter.string(from: datePicker.date)
+        let formatter1 = DateFormatter()
+        formatter1.dateFormat = "yyyy-MM-dd"
+        //        self.selectedDate = formatter1.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
     
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
+    
+    func validateTextFields() -> Bool{
+        if selectedNoticeId == nil {
+            showSnackBar(with: "Please select Notice type", duration: .short)
+            return false
+        }else if noticeNameTF.text == "" {
+            showSnackBar(with: "Please enter Notice name", duration: .short)
+            return false
+        }else if descriptionTF.text == "" {
+            showSnackBar(with: "Please enter Notice description", duration: .short)
+            return false
+        }else if noticeExpiryTF.text == "" {
+            showSnackBar(with: "Please select Notice expiry date", duration: .short)
+            return false
+        }
+        return true
+    }
+
 }
 
 extension NewNoticeVC {

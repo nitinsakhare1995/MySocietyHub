@@ -8,6 +8,8 @@
 import Foundation
 import TTGSnackbar
 
+public let appName = "My Society Hub"
+
 public func showSnackBar(with message: String, duration: TTGSnackbarDuration) {
     DispatchQueue.main.async {
         let snackBar = TTGSnackbar(message: message, duration: duration)
@@ -35,5 +37,37 @@ public func showDate(createdAt: String, dateFormat: String) -> String {
         return dateFormatterPrint.string(from: date)
     } else {
         return ""
+    }
+}
+
+public func openDeviceSettings(title: String, message: String) {
+    let alertController = UIAlertController (title: title, message: message, preferredStyle: .alert)
+    let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    // Prints true
+                })
+            } else {
+                // Fallback on earlier versions
+            }
+        }
+    }
+    alertController.addAction(settingsAction)
+    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+    alertController.addAction(cancelAction)
+    alertController.showAlertController()
+}
+
+public extension UIAlertController {
+    func showAlertController() {
+        let win = UIWindow(frame: UIScreen.main.bounds)
+        let vc = UIViewController()
+        vc.view.backgroundColor = .clear
+        win.rootViewController = vc
+        win.windowLevel = UIWindow.Level.alert + 1
+        win.makeKeyAndVisible()
+        vc.present(self, animated: true, completion: nil)
     }
 }

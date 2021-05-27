@@ -7,6 +7,7 @@
 
 import UIKit
 import DropDown
+import DLRadioButton
 
 class NewComplaintVC: BaseViewController {
     
@@ -18,6 +19,7 @@ class NewComplaintVC: BaseViewController {
     @IBOutlet weak var lblComplaintType: UILabel!
     @IBOutlet weak var lblComplaintCategory: UILabel!
     @IBOutlet weak var descriptionTF: UITextView!
+    @IBOutlet weak var imgAttachment: UIImageView!
     
     var complaintNatureDropdown = DropDown()
     var complaintNaturelist = [NoticeTableModel]()
@@ -30,6 +32,8 @@ class NewComplaintVC: BaseViewController {
     var complaintCategoryDropdown = DropDown()
     var complaintCategorylist = [NoticeTableModel]()
     var selectedcomplaintCategoryId: String?
+    
+    var isComplaintUrgent: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +76,47 @@ class NewComplaintVC: BaseViewController {
     }
     
     @IBAction func btnRaiseComplaintTapped(_ sender: UIButton) {
-        
+        if validateTextFields(){
+            print("Call APi")
+        }
     }
     
     @IBAction func btnAddImageTapped(_ sender: UIButton) {
-        
+        let picker = FilePicker.instantiate(with: [.camera, .gallery])
+        picker.modalPresentationStyle = .overCurrentContext
+        self.present(picker, animated: true, completion: nil)
+        picker.didSelectImageAttachment = { attachment in
+            self.imgAttachment.image = attachment.image
+            //            self.uploadProfileImageOnServer(image: attachment.image)
+        }
+    }
+    
+    @IBAction func btnYesTapped(_ sender: UIButton) {
+        isComplaintUrgent = true
+    }
+    
+    @IBAction func btnNoTapped(_ sender: UIButton) {
+        isComplaintUrgent = false
+    }
+    
+    func validateTextFields() -> Bool{
+        if selectedComplaintNatureId == nil {
+            showSnackBar(with: "Please select Complaint Nature", duration: .short)
+            return false
+        }else if selectedcomplaintTypeId == nil {
+            showSnackBar(with: "Please select Complaint type", duration: .short)
+            return false
+        }else if selectedcomplaintCategoryId == nil {
+            showSnackBar(with: "Please select Complaint category", duration: .short)
+            return false
+        }else if isComplaintUrgent == nil {
+            showSnackBar(with: "Please select is your Compalint urgent or no", duration: .short)
+            return false
+        }else if descriptionTF.text == "" {
+            showSnackBar(with: "Please enter Notice description", duration: .short)
+            return false
+        }
+        return true
     }
     
 }
