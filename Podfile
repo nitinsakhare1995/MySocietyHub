@@ -13,7 +13,8 @@ target 'My Society Hub' do
   pod 'TTGSnackbar'
   pod 'SVProgressHUD'
   pod 'DLRadioButton', '~> 1.4'
-  
+  pod 'Kingfisher', '~> 6.0'
+
   target 'My Society HubTests' do
     inherit! :search_paths
     # Pods for testing

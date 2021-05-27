@@ -36,3 +36,17 @@ class menuItemsModel {
     
 }
 
+class EmergencyModel {
+    
+    let name: String
+    let image: UIImage
+    let numbers: [String]
+    
+    init(name: String, image: UIImage, numbers: [String]) {
+        self.name = name
+        self.image = image
+        self.numbers = numbers
+    }
+    
+}
+

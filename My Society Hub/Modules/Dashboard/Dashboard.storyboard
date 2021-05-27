@@ -1012,6 +1012,9 @@
                                             <constraint firstAttribute="height" constant="15" id="twN-vL-d05"/>
                                         </constraints>
                                         <state key="normal" image="cancel"/>
+                                        <connections>
+                                            <action selector="btnCancelTapped:" destination="q3F-vF-T9V" eventType="touchUpInside" id="NNa-I2-ciW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1041,6 +1044,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCancel" destination="Jc1-VL-1OD" id="h5D-vw-n7f"/>
                         <outlet property="tableView" destination="g6K-fO-HDP" id="yeR-RO-XF1"/>
                     </connections>
                 </viewController>

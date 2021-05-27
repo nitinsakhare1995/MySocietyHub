@@ -69,6 +69,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="imgCall" destination="qeF-Kr-UUf" id="hau-Nx-GJ4"/>
+                <outlet property="imgEmergency" destination="bvO-Hn-fVN" id="QBN-e3-02q"/>
+                <outlet property="lblEmergency" destination="mj4-3p-BbZ" id="zxB-OO-uWI"/>
                 <outlet property="mainView" destination="wtn-F7-bVl" id="ecp-Sz-uie"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
