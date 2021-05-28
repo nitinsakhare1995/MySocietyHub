@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,15 +12,89 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoticeBoardCell" id="gTV-IL-0wX" customClass="NoticeBoardCell" customModule="My_Society_Hub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="316" height="189"/>
+            <rect key="frame" x="0.0" y="0.0" width="450" height="262"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="316" height="189"/>
+                <rect key="frame" x="0.0" y="0.0" width="450" height="262"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gjh-j5-xE5">
-                        <rect key="frame" x="0.0" y="0.0" width="316" height="189"/>
-                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="262"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycp-Fm-tGI">
+                                <rect key="frame" x="15" y="15" width="398" height="14.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXf-56-CMG">
+                                <rect key="frame" x="15" y="39.5" width="410" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLl-43-KqH">
+                                <rect key="frame" x="15" y="61.5" width="420" height="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="9"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7D-Tr-WhA">
+                                <rect key="frame" x="421" y="15" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="VjG-Oc-bv6"/>
+                                    <constraint firstAttribute="width" constant="14" id="bOF-Pk-Q5U"/>
+                                </constraints>
+                                <state key="normal" image="download"/>
+                                <connections>
+                                    <action selector="btnDownloadNoticeTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="2ro-dY-9qH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bd-Ix-puP">
+                                <rect key="frame" x="15" y="82.5" width="420" height="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eo6-iV-3wt">
+                                <rect key="frame" x="15" y="103.5" width="420" height="11"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-eC-6oT">
+                                <rect key="frame" x="387" y="234" width="48" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="9"/>
+                                <state key="normal" title="Read More">
+                                    <color key="titleColor" name="appOrangeColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btReadMoreTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="0GI-ZB-fXv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Bd-Ix-puP" firstAttribute="top" secondItem="vLl-43-KqH" secondAttribute="bottom" constant="10" id="7Fd-9K-Szj"/>
+                            <constraint firstAttribute="trailing" secondItem="hXf-56-CMG" secondAttribute="trailing" constant="25" id="9fs-yd-nLL"/>
+                            <constraint firstItem="vLl-43-KqH" firstAttribute="top" secondItem="hXf-56-CMG" secondAttribute="bottom" constant="10" id="A2h-aB-8eL"/>
+                            <constraint firstAttribute="trailing" secondItem="Eo6-iV-3wt" secondAttribute="trailing" constant="15" id="FVG-qb-Lbi"/>
+                            <constraint firstItem="Eo6-iV-3wt" firstAttribute="leading" secondItem="Gjh-j5-xE5" secondAttribute="leading" constant="15" id="Ipy-e9-te1"/>
+                            <constraint firstItem="ycp-Fm-tGI" firstAttribute="top" secondItem="Gjh-j5-xE5" secondAttribute="top" constant="15" id="LfZ-tl-2C7"/>
+                            <constraint firstItem="C7D-Tr-WhA" firstAttribute="leading" secondItem="ycp-Fm-tGI" secondAttribute="trailing" constant="8" id="LhQ-K2-NCP"/>
+                            <constraint firstItem="vLl-43-KqH" firstAttribute="leading" secondItem="Gjh-j5-xE5" secondAttribute="leading" constant="15" id="Lvf-4i-OXs"/>
+                            <constraint firstAttribute="bottom" secondItem="ORh-eC-6oT" secondAttribute="bottom" constant="5" id="Vtk-d8-rMz"/>
+                            <constraint firstItem="Eo6-iV-3wt" firstAttribute="top" secondItem="9Bd-Ix-puP" secondAttribute="bottom" constant="10" id="XD8-ZD-YPr"/>
+                            <constraint firstAttribute="trailing" secondItem="ORh-eC-6oT" secondAttribute="trailing" constant="15" id="YG4-x0-iua"/>
+                            <constraint firstAttribute="trailing" secondItem="C7D-Tr-WhA" secondAttribute="trailing" constant="15" id="aua-q0-BDx"/>
+                            <constraint firstAttribute="trailing" secondItem="9Bd-Ix-puP" secondAttribute="trailing" constant="15" id="feV-oQ-2Oc"/>
+                            <constraint firstItem="hXf-56-CMG" firstAttribute="top" secondItem="ycp-Fm-tGI" secondAttribute="bottom" constant="10" id="hWf-qN-jS2"/>
+                            <constraint firstItem="ycp-Fm-tGI" firstAttribute="leading" secondItem="Gjh-j5-xE5" secondAttribute="leading" constant="15" id="hZJ-65-vIJ"/>
+                            <constraint firstItem="C7D-Tr-WhA" firstAttribute="top" secondItem="Gjh-j5-xE5" secondAttribute="top" constant="15" id="lxA-Pw-dxQ"/>
+                            <constraint firstAttribute="trailing" secondItem="vLl-43-KqH" secondAttribute="trailing" constant="15" id="mxV-KQ-NVD"/>
+                            <constraint firstItem="hXf-56-CMG" firstAttribute="leading" secondItem="Gjh-j5-xE5" secondAttribute="leading" constant="15" id="qYy-Tq-U1V"/>
+                            <constraint firstItem="9Bd-Ix-puP" firstAttribute="leading" secondItem="Gjh-j5-xE5" secondAttribute="leading" constant="15" id="vZg-eG-vQ7"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="8"/>
@@ -35,13 +110,26 @@
                 <constraint firstItem="Gjh-j5-xE5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ib9-xS-mTw"/>
                 <constraint firstAttribute="bottom" secondItem="Gjh-j5-xE5" secondAttribute="bottom" id="mKa-nM-I0T"/>
             </constraints>
-            <size key="customSize" width="316" height="189"/>
-            <point key="canvasLocation" x="330.43478260869568" y="167.07589285714286"/>
+            <size key="customSize" width="450" height="262"/>
+            <connections>
+                <outlet property="btnDownload" destination="C7D-Tr-WhA" id="eP6-oL-5zf"/>
+                <outlet property="lblNoticeDate" destination="9Bd-Ix-puP" id="b3D-4N-RqQ"/>
+                <outlet property="lblNoticeDescription" destination="vLl-43-KqH" id="UkF-FS-TVS"/>
+                <outlet property="lblNoticeExpiryDate" destination="Eo6-iV-3wt" id="owW-ql-G4a"/>
+                <outlet property="lblNoticeSubject" destination="hXf-56-CMG" id="PiH-j7-5YQ"/>
+                <outlet property="lblNoticeType" destination="ycp-Fm-tGI" id="uS2-32-ol8"/>
+                <outlet property="mainView" destination="Gjh-j5-xE5" id="eXv-Ts-Hpf"/>
+            </connections>
+            <point key="canvasLocation" x="427.536231884058" y="191.51785714285714"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="download" width="64" height="64"/>
+        <namedColor name="appOrangeColor">
+            <color red="1" green="0.27099999785423279" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

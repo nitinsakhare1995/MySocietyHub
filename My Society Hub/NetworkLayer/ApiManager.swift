@@ -42,10 +42,13 @@ public enum APIRequest: URLRequestConvertible {
     case getComplaintType
     case getComplaintCategory
     case getMiniStatement(toDate: String, fromDate: String)
+    case getAds
+    case getBanners
+    case getNoticeBoardList
     
     var method: HTTPMethod {
         switch self {
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList:
             return .get
         default:
             return .post
@@ -73,13 +76,19 @@ public enum APIRequest: URLRequestConvertible {
         case .getNoticeType:
             return "business/CodeMasterByType?codetype=NoticeType"
         case .getComplaintNature:
-        return "business/CodeMasterByType?codetype=ComplaintNature"
+            return "business/CodeMasterByType?codetype=ComplaintNature"
         case .getComplaintType:
             return "business/CodeMasterByType?codetype=ComplaintType"
         case .getComplaintCategory:
             return "business/ComplaintCategory"
         case .getMiniStatement(let toDate, let fromDate):
             return "report/GetCustomerReportData?FromDate=\(fromDate)&Report=1&ToDate=\(toDate)&UserID="
+        case .getAds:
+            return "business/Banners?Type=Ads"
+        case .getBanners:
+            return "business/Banners?Type=Banner"
+        case .getNoticeBoardList:
+            return "business/WidgetData?Code=DNB"
         }
     }
     
@@ -116,7 +125,7 @@ public enum APIRequest: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
         switch self{
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList:
             return try URLEncoding.default.encode(request, with: parameters)
         default:
             return try JSONEncoding.default.encode(request, with: parameters)

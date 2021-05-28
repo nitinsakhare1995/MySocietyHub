@@ -14,7 +14,7 @@ class DashboardVC: UIViewController {
     @IBOutlet weak var iconsCollectionView: UICollectionView!
     @IBOutlet weak var operationImagesCollectionView: UICollectionView!
     @IBOutlet weak var servicesImagesCollectionView: UICollectionView!
-    
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblSocietyName: UILabel!
     
@@ -29,12 +29,18 @@ class DashboardVC: UIViewController {
     var operationItemWidth = CGFloat(0)
     
     private var menuData = [menuItemsModel]()
+    var adList = [UserTableModel]()
+    var bannerList = [UserTableModel]()
+    var noticeList = [NoticeTableModel]()
+    var userData: UserTableModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         lblUserName.text = ""
         lblSocietyName.text = ""
+        
+        topView.roundCorners([.bottomLeft, .bottomRight], radius: 50)
         
         setupPageControl()
         registerNib()
@@ -44,12 +50,16 @@ class DashboardVC: UIViewController {
         setupMenuData()
         
         getUserData()
+        getAdsList()
+        getBannersList()
+        getNoticeList()
     }
     
     func registerNib() {
         noticeCollectionView.delegate = self
         noticeCollectionView.dataSource = self
         noticeCollectionView.register(UINib(nibName: AppIdentifiers.noticeBoardCell, bundle: nil), forCellWithReuseIdentifier: AppIdentifiers.noticeBoardCell)
+        noticeCollectionView.register(UINib(nibName: AppIdentifiers.noticeBoardPaymentCell, bundle: nil), forCellWithReuseIdentifier: AppIdentifiers.noticeBoardPaymentCell)
         
         iconsCollectionView.delegate = self
         iconsCollectionView.dataSource = self
@@ -67,7 +77,6 @@ class DashboardVC: UIViewController {
     
     func setupPageControl(){
         noticePageControl.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        noticePageControl.numberOfPages = 4
     }
     
     func setupMenuData(){
@@ -80,8 +89,40 @@ class DashboardVC: UIViewController {
     
     func getUserData(){
         Remote.shared.getUserData { data in
+            self.userData = data?.table?.first
             self.lblUserName.text = data?.table?.first?.customerName
             self.lblSocietyName.text = data?.table?.first?.locationName
+            DispatchQueue.main.async {
+                self.noticeCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func getAdsList(){
+        Remote.shared.getAds { data in
+            self.adList = data?.table ?? []
+            DispatchQueue.main.async {
+                self.operationImagesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func getBannersList(){
+        Remote.shared.getBanners { data in
+            self.bannerList = data?.table ?? []
+            DispatchQueue.main.async {
+                self.servicesImagesCollectionView.reloadData()
+            }
+        }
+    }
+    
+    func getNoticeList(){
+        Remote.shared.getNoticeBoardList{ data in
+            self.noticeList = data?.table ?? []
+            DispatchQueue.main.async {
+                self.noticeCollectionView.reloadData()
+                self.noticePageControl.numberOfPages = self.noticeList.count + 1
+            }
         }
     }
     
@@ -92,13 +133,13 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case self.noticeCollectionView:
-            return 4
+            return self.noticeList.count + 1
         case self.iconsCollectionView:
             return menuData.count
         case self.operationImagesCollectionView:
-            return 4
+            return self.adList.count
         case self.servicesImagesCollectionView:
-            return 4
+            return self.bannerList.count
         default:
             return 0
         }
@@ -107,17 +148,38 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
         case self.noticeCollectionView:
-            let cell = noticeCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.noticeBoardCell, for: indexPath) as! NoticeBoardCell
-            return cell
+            if indexPath.item == 0 {
+                let cell = noticeCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.noticeBoardPaymentCell, for: indexPath) as! NoticeBoardPaymentCell
+                cell.lblAmount.text = "₹ \(self.userData?.outstandingAmount?.description ?? "")"
+                cell.payNowBtnTapped = {
+                    let vc = PayNowVC.instantiate(from: .dashboard)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                return cell
+            } else {
+                let cell = noticeCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.noticeBoardCell, for: indexPath) as! NoticeBoardCell
+                cell.configureCell(self.noticeList[indexPath.item - 1])
+                cell.downloadBtnTapped = {
+                    print("DOWNLOAD")
+                }
+                cell.readMoreBtnTapped = {
+                    print("READ MORE")
+                }
+                return cell
+            }
         case self.iconsCollectionView:
             let cell = iconsCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.operationCell, for: indexPath) as! OperationCell
             cell.configureCell(menuData[indexPath.item])
             return cell
         case self.operationImagesCollectionView:
             let cell = operationImagesCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.imageCollectionCell, for: indexPath) as! ImageCollectionCell
+            let url = URL(string: adList[indexPath.row].path ?? "")
+            cell.imgAd.kf.setImage(with: url)
             return cell
         case self.servicesImagesCollectionView:
             let cell = servicesImagesCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.imageCollectionCell, for: indexPath) as! ImageCollectionCell
+            let url = URL(string: bannerList[indexPath.row].path ?? "")
+            cell.imgAd.kf.setImage(with: url)
             return cell
         default:
             return UICollectionViewCell()
@@ -126,26 +188,32 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        let pageWidth = Float(noticeItemWidth + noticeItemSpacing)
-        let targetXContentOffset = Float(targetContentOffset.pointee.x)
-        let contentWidth = Float(noticeCollectionView?.contentSize.width ?? 0)
-        var newPage = Float(self.noticePageControl.currentPage)
-        
-        if velocity.x == 0 {
-            newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
-        } else {
-            newPage = Float(velocity.x > 0 ? self.noticePageControl.currentPage + 1 : self.noticePageControl.currentPage - 1)
-            if newPage < 0 {
-                newPage = 0
+        if scrollView == self.noticeCollectionView {
+            
+            let pageWidth = Float(noticeItemWidth + noticeItemSpacing)
+            let targetXContentOffset = Float(targetContentOffset.pointee.x)
+            let contentWidth = Float(noticeCollectionView?.contentSize.width ?? 0)
+            var newPage = Float(self.noticePageControl.currentPage)
+            
+            if velocity.x == 0 {
+                newPage = floor( (targetXContentOffset - Float(pageWidth) / 2) / Float(pageWidth)) + 1.0
+            } else {
+                newPage = Float(velocity.x > 0 ? self.noticePageControl.currentPage + 1 : self.noticePageControl.currentPage - 1)
+                if newPage < 0 {
+                    newPage = 0
+                }
+                if (newPage > contentWidth / pageWidth) {
+                    newPage = ceil(contentWidth / pageWidth) - 1.0
+                }
             }
-            if (newPage > contentWidth / pageWidth) {
-                newPage = ceil(contentWidth / pageWidth) - 1.0
-            }
+            
+            self.noticePageControl.currentPage = Int(newPage)
+            let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
+            targetContentOffset.pointee = point
+            
         }
-        
-        self.noticePageControl.currentPage = Int(newPage)
-        let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
-        targetContentOffset.pointee = point
+
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -186,9 +254,10 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension DashboardVC {
     
     func setupNoticeCollectionView() {
+        
         let layout: UICollectionViewFlowLayout = ZoomAndSnapFlowLayout()
         noticeItemHeight = self.noticeCollectionView.frame.height - 50
-        noticeItemWidth = self.noticeCollectionView.frame.width - 130
+        noticeItemWidth = self.view.frame.width - 140
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: noticeItemWidth, height: noticeItemHeight)
         layout.headerReferenceSize = CGSize(width: noticeCollectionMargin, height: 0)
@@ -200,31 +269,31 @@ extension DashboardVC {
     }
     
     func setupOperationCollectionView() {
-        let layout: UICollectionViewFlowLayout = ZoomAndSnapFlowLayout()
-        operationItemHeight = self.operationImagesCollectionView.frame.height - 50
-        operationItemWidth = self.operationImagesCollectionView.frame.width - 130
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: operationItemWidth, height: operationItemHeight)
-        layout.headerReferenceSize = CGSize(width: noticeCollectionMargin, height: 0)
-        layout.footerReferenceSize = CGSize(width: noticeCollectionMargin, height: 0)
-        layout.minimumLineSpacing = noticeItemSpacing
-        layout.scrollDirection = .horizontal
-        operationImagesCollectionView?.collectionViewLayout = layout
-        operationImagesCollectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
+        
+        let layout = ZoomAndSnapFlowLayout()
+        layout.itemSize = CGSize(width: self.view.frame.width-130, height: self.operationImagesCollectionView.frame.height)
+        operationImagesCollectionView.collectionViewLayout = layout
+        operationImagesCollectionView.contentInsetAdjustmentBehavior = .always
+        operationImagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        operationImagesCollectionView.showsHorizontalScrollIndicator = false
+        operationImagesCollectionView.decelerationRate = .fast
+        operationImagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        operationImagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
     }
     
     func setupServicesCollectionView() {
-        let layout: UICollectionViewFlowLayout = ZoomAndSnapFlowLayout()
-        operationItemHeight = self.servicesImagesCollectionView.frame.height - 50
-        operationItemWidth = self.servicesImagesCollectionView.frame.width - 130
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: operationItemWidth, height: operationItemHeight)
-        layout.headerReferenceSize = CGSize(width: noticeCollectionMargin, height: 0)
-        layout.footerReferenceSize = CGSize(width: noticeCollectionMargin, height: 0)
-        layout.minimumLineSpacing = noticeItemSpacing
-        layout.scrollDirection = .horizontal
-        servicesImagesCollectionView?.collectionViewLayout = layout
-        servicesImagesCollectionView?.decelerationRate = UIScrollView.DecelerationRate.fast
+        
+        let layout = ZoomAndSnapFlowLayout()
+        layout.itemSize = CGSize(width: self.view.frame.width-130, height: self.servicesImagesCollectionView.frame.height)
+        servicesImagesCollectionView.collectionViewLayout = layout
+        servicesImagesCollectionView.contentInsetAdjustmentBehavior = .always
+        servicesImagesCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        servicesImagesCollectionView.showsHorizontalScrollIndicator = false
+        servicesImagesCollectionView.decelerationRate = .fast
+        servicesImagesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        servicesImagesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    
     }
     
 }

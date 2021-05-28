@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NoticeBoardPaymentCell" id="gTV-IL-0wX" customClass="NoticeBoardPaymentCell" customModule="My_Society_Hub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="341" height="224"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="224"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D6v-dg-4bK">
+                        <rect key="frame" x="0.0" y="0.0" width="341" height="224"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay your outstanding amount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIa-K4-lgh">
+                        <rect key="frame" x="10" y="20" width="321" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1234" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbi-UA-vA9">
+                        <rect key="frame" x="10" y="47.5" width="321" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" name="appOrangeColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q9B-CV-3Ya">
+                        <rect key="frame" x="110.5" y="169" width="120" height="30"/>
+                        <color key="backgroundColor" name="appOrangeColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="7Lu-51-CdV"/>
+                            <constraint firstAttribute="width" constant="120" id="FzQ-vb-IOT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                        <state key="normal" title="Pay Now">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="btnPayNowTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="sac-mw-zbu"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="dbi-UA-vA9" firstAttribute="top" secondItem="uIa-K4-lgh" secondAttribute="bottom" constant="14" id="8D5-KN-RYZ"/>
+                <constraint firstAttribute="bottom" secondItem="D6v-dg-4bK" secondAttribute="bottom" id="DXg-x7-Rel"/>
+                <constraint firstAttribute="trailing" secondItem="uIa-K4-lgh" secondAttribute="trailing" constant="10" id="ErX-mM-foA"/>
+                <constraint firstItem="uIa-K4-lgh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Jrb-Sc-xSm"/>
+                <constraint firstItem="dbi-UA-vA9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="KTO-DB-hXE"/>
+                <constraint firstItem="uIa-K4-lgh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="Lzl-SK-JgO"/>
+                <constraint firstItem="D6v-dg-4bK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Rse-XS-yn4"/>
+                <constraint firstAttribute="trailing" secondItem="dbi-UA-vA9" secondAttribute="trailing" constant="10" id="Z3h-uP-Qi9"/>
+                <constraint firstItem="q9B-CV-3Ya" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="fhC-cS-dJH"/>
+                <constraint firstItem="D6v-dg-4bK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hXD-NG-899"/>
+                <constraint firstAttribute="trailing" secondItem="D6v-dg-4bK" secondAttribute="trailing" id="jAP-Iy-g7j"/>
+                <constraint firstAttribute="bottom" secondItem="q9B-CV-3Ya" secondAttribute="bottom" constant="25" id="lm6-ub-9KE"/>
+            </constraints>
+            <size key="customSize" width="341" height="224"/>
+            <connections>
+                <outlet property="lblAmount" destination="dbi-UA-vA9" id="sJb-zw-r9W"/>
+                <outlet property="mainView" destination="D6v-dg-4bK" id="Zdy-4j-nfp"/>
+            </connections>
+            <point key="canvasLocation" x="348.55072463768118" y="168.08035714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="appOrangeColor">
+            <color red="1" green="0.27099999785423279" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

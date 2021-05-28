@@ -11,6 +11,8 @@
 		5F76E99A0C747C69AEB07B47 /* Pods_My_Society_Hub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D4B66330EEB1006128343FE /* Pods_My_Society_Hub.framework */; };
 		870655D1265A858800BF9904 /* NewNoticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870655D0265A858800BF9904 /* NewNoticeVC.swift */; };
 		870655D3265A859700BF9904 /* NewComplaintVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870655D2265A859700BF9904 /* NewComplaintVC.swift */; };
+		8714B42C26611BA4007D38AB /* NoticeBoardPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8714B42A26611BA4007D38AB /* NoticeBoardPaymentCell.swift */; };
+		8714B42D26611BA4007D38AB /* NoticeBoardPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8714B42B26611BA4007D38AB /* NoticeBoardPaymentCell.xib */; };
 		8724FE12265A68520032BB07 /* MyAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE10265A68520032BB07 /* MyAccountCell.swift */; };
 		8724FE13265A68520032BB07 /* MyAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8724FE11265A68520032BB07 /* MyAccountCell.xib */; };
 		8724FE15265A6A670032BB07 /* BillSlabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8724FE14265A6A670032BB07 /* BillSlabVC.swift */; };
@@ -117,6 +119,8 @@
 		866520D75F47A3D34D7BDACC /* Pods-My Society HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Society HubTests.debug.xcconfig"; path = "Target Support Files/Pods-My Society HubTests/Pods-My Society HubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		870655D0265A858800BF9904 /* NewNoticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoticeVC.swift; sourceTree = "<group>"; };
 		870655D2265A859700BF9904 /* NewComplaintVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewComplaintVC.swift; sourceTree = "<group>"; };
+		8714B42A26611BA4007D38AB /* NoticeBoardPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBoardPaymentCell.swift; sourceTree = "<group>"; };
+		8714B42B26611BA4007D38AB /* NoticeBoardPaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeBoardPaymentCell.xib; sourceTree = "<group>"; };
 		8724FE10265A68520032BB07 /* MyAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountCell.swift; sourceTree = "<group>"; };
 		8724FE11265A68520032BB07 /* MyAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAccountCell.xib; sourceTree = "<group>"; };
 		8724FE14265A6A670032BB07 /* BillSlabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillSlabVC.swift; sourceTree = "<group>"; };
@@ -352,6 +356,8 @@
 				8727284A265A71380096499F /* EmergencyCell.xib */,
 				87272851265A74F20096499F /* EmergencyNumbersCell.swift */,
 				87272852265A74F20096499F /* EmergencyNumbersCell.xib */,
+				8714B42A26611BA4007D38AB /* NoticeBoardPaymentCell.swift */,
+				8714B42B26611BA4007D38AB /* NoticeBoardPaymentCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 				8779512026598521002860F9 /* NoticeComplaint.storyboard in Resources */,
 				8724FE13265A68520032BB07 /* MyAccountCell.xib in Resources */,
 				8727284C265A71380096499F /* EmergencyCell.xib in Resources */,
+				8714B42D26611BA4007D38AB /* NoticeBoardPaymentCell.xib in Resources */,
 				877F934726597C8F00826C36 /* OperationCell.xib in Resources */,
 				877F933826596F2900826C36 /* Dashboard.storyboard in Resources */,
 				877F93432659757F00826C36 /* NoticeBoardCell.xib in Resources */,
@@ -829,6 +836,7 @@
 				87272848265A71260096499F /* EmergencyVC.swift in Sources */,
 				870655D1265A858800BF9904 /* NewNoticeVC.swift in Sources */,
 				8765364F265FABC90049C766 /* ImageFilePicker.swift in Sources */,
+				8714B42C26611BA4007D38AB /* NoticeBoardPaymentCell.swift in Sources */,
 				87A7EE822657960300562DF8 /* BaseViewController.swift in Sources */,
 				876246C7265EA4F1009493E3 /* UITextView+Extension.swift in Sources */,
 				87272853265A74F20096499F /* EmergencyNumbersCell.swift in Sources */,

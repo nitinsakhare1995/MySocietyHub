@@ -9,9 +9,6 @@ import UIKit
 
 class ImageCollectionCell: UICollectionViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
+    @IBOutlet weak var imgAd: UIImageView!
+    
 }

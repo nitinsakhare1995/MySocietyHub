@@ -59,6 +59,8 @@ struct UserTableModel : Mappable {
     var isCommitteMember : Bool?
     var isManager : Bool?
     var isAdministrator : Bool?
+    var path : String?
+    var link : String?
 
     init?(map: Map) {
 
@@ -102,6 +104,8 @@ struct UserTableModel : Mappable {
         isCommitteMember <- map["IsCommitteMember"]
         isManager <- map["IsManager"]
         isAdministrator <- map["IsAdministrator"]
+        path <- map["Path"]
+        link <- map["Link"]
     }
 
 }
