@@ -157,6 +157,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 cell.lblAmount.text = "₹ \(self.userData?.outstandingAmount?.description ?? "")"
                 cell.payNowBtnTapped = {
                     let vc = PayNowVC.instantiate(from: .dashboard)
+                    vc.isFromNavigation = true
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 return cell
@@ -233,6 +234,7 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
             switch self.menuData[indexPath.item].name{
             case "Pay now":
                 let vc = PayNowVC.instantiate(from: .dashboard)
+                vc.isFromNavigation = true
                 self.navigationController?.pushViewController(vc, animated: true)
             case "My Account":
                 let vc = MyAccountVC.instantiate(from: .userAccount)

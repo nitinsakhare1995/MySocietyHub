@@ -16,9 +16,11 @@ class PayNowVC: BaseViewController {
     @IBOutlet weak var mobileNumberTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
     @IBOutlet weak var btnAgree: UIButton!
+    @IBOutlet weak var payNowHeightConstraint: NSLayoutConstraint!
     
     var isChecked = false
     var userData: UserTableModel?
+    var isFromNavigation = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,24 @@ class PayNowVC: BaseViewController {
         tabBarItem.tag = TabbarItemTag.firstViewController.rawValue
         getUserData()
         
+        if isFromNavigation {
+            payNowHeightConstraint.constant = 0
+        }else{
+            payNowHeightConstraint.constant = 45
+        }
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Pay Now"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+
     
     func getUserData(){
         Remote.shared.getUserData { data in

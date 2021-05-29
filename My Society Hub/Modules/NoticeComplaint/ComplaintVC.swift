@@ -45,13 +45,13 @@ class ComplaintVC: BaseViewController {
     
     func addBarbuttonItem(){
         let addBtn = UIButton(type: .custom)
-        addBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
+        addBtn.frame = CGRect(x: 0.0, y: 0.0, width: 25, height: 25)
         addBtn.setImage(#imageLiteral(resourceName: "add").maskWithColor(color: .white), for: .normal)
         addBtn.addTarget(self, action: #selector(addNewComplaint), for: .touchUpInside)
         let addBarItem = UIBarButtonItem(customView: addBtn)
-        let currWidth = addBarItem.customView?.widthAnchor.constraint(equalToConstant: 25)
+        let currWidth = addBarItem.customView?.widthAnchor.constraint(equalToConstant: 20)
         currWidth?.isActive = true
-        let currHeight = addBarItem.customView?.heightAnchor.constraint(equalToConstant: 25)
+        let currHeight = addBarItem.customView?.heightAnchor.constraint(equalToConstant: 20)
         currHeight?.isActive = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addBtn)
     }
