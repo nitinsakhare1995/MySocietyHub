@@ -573,4 +573,30 @@ class Remote {
             }
     }
     
+    func closeComplaint(documentID: String, remarks: String, completion: @escaping (UserModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.closeComplaint(documentID: documentID, remarks: remarks))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<UserModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
 }

@@ -94,6 +94,7 @@ extension ComplaintVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = ComplaintDetailsVC.instantiate(from: .noticeComplaint)
         controller.data = self.data[indexPath.row]
+        controller.controller = self
         let sheetController = SheetViewController(controller: controller, sizes: [.marginFromTop(100)])
         self.present(sheetController, animated: true, completion: nil)
     }

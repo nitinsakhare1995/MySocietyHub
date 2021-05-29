@@ -29,6 +29,7 @@ class ComplaintDetailsVC: BaseViewController {
     @IBOutlet weak var openStatusViewLine: UIView!
     
     var data: NoticeTableModel?
+    var controller: ComplaintVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,9 +78,17 @@ class ComplaintDetailsVC: BaseViewController {
         }
     }
     
+    func closeComplaint(){
+        guard let docId = data?.documentID else { return }
+        Remote.shared.closeComplaint(documentID: docId, remarks: self.remarkTF.text ?? "") { data in
+            self.dismiss(animated: true) { [self] in
+                controller?.getComplaintList()
+            }
+        }
+    }
     
     @IBAction func btnMarkAsResolvedTapped(_ sender: UIButton) {
-        
+        closeComplaint()
     }
     
     @IBAction func btnCloseTapped(_ sender: UIButton) {

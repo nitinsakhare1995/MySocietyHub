@@ -50,6 +50,7 @@ public enum APIRequest: URLRequestConvertible {
     case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String)
     case makePayment(amount: Int, firstname: String, email: String, phone: String)
     case getDocumentUrl(type: String, Id: String)
+    case closeComplaint(documentID: String, remarks: String)
     
     var method: HTTPMethod {
         switch self {
@@ -104,6 +105,8 @@ public enum APIRequest: URLRequestConvertible {
             return "payment/requesturl"
         case .getDocumentUrl(let type, let Id):
             return "report/GetReportDocument?documenttype=\(type)&documentid=\(Id)&keycode=True"
+        case .closeComplaint(let documentID, let remarks):
+            return "business1/UpdateDocumentStatus"
         }
     }
     
@@ -143,6 +146,10 @@ public enum APIRequest: URLRequestConvertible {
                     "email": email,
                     "phone": phone,
                     "iagree": true]
+        case .closeComplaint(let documentID, let remarks):
+            return ["DocumentID": documentID,
+                    "Remarks": remarks,
+                    "Status":"Closed"]
         default:
             return [:]
         }
