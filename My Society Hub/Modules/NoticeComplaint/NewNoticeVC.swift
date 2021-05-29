@@ -87,7 +87,7 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
     
     func addNewNotice(){
         guard let noticeTypeID = self.selectedNoticeId, let noticeSubject = noticeNameTF.text, let noticeDescription = descriptionTF.text, let expiryDate = self.selectedNoticeExpiryDate else { return }
-        Remote.shared.addNewNotice(noticeTypeID: noticeTypeID, noticeSubject: noticeSubject, noticeDescription: noticeDescription, noticeDate: Date().string(format: "yyyy-MM-dd"), expiryDate: expiryDate, attachmentID: self.attachmentID) { data in
+        Remote.shared.addNewNotice(noticeTypeID: noticeTypeID, noticeSubject: noticeSubject, noticeDescription: noticeDescription, noticeDate: Date().string(format: "yyyy-MM-dd"), expiryDate: expiryDate, attachmentID: self.attachmentID ?? 0) { data in
             showSnackBar(with: data?.table?.first?.message ?? "", duration: .middle)
             self.navigationController?.popViewController(animated: true)
         }

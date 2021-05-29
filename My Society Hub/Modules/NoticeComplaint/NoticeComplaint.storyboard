@@ -1233,10 +1233,10 @@
     </scenes>
     <designables>
         <designable name="Kjs-IT-ciU">
-            <size key="intrinsicContentSize" width="37" height="16"/>
+            <size key="intrinsicContentSize" width="30" height="28"/>
         </designable>
         <designable name="LGD-RB-QQ1">
-            <size key="intrinsicContentSize" width="33" height="16"/>
+            <size key="intrinsicContentSize" width="30" height="28"/>
         </designable>
     </designables>
     <resources>

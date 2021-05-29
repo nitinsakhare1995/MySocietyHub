@@ -469,7 +469,7 @@ class Remote {
         }
     }
     
-    func addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int? = nil, completion: @escaping (UserModel?) -> Void){
+    func addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int, completion: @escaping (UserModel?) -> Void){
         SVProgressHUD.show()
         Alamofire.request(APIRequest.addNewNotice(noticeTypeID: noticeTypeID, noticeSubject: noticeSubject, noticeDescription: noticeDescription, noticeDate: noticeDate, expiryDate: expiryDate, attachmentID: attachmentID))
             .responseJSON { response in

@@ -46,7 +46,7 @@ public enum APIRequest: URLRequestConvertible {
     case getBanners
     case getNoticeBoardList
     case uploadFileOnServer
-    case addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int? = nil)
+    case addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int)
     case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String)
     case makePayment(amount: Int, firstname: String, email: String, phone: String)
     case getDocumentUrl(type: String, Id: String)
