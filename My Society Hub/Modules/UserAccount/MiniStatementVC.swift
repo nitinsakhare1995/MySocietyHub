@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class MiniStatementVC: BaseViewController, UITextFieldDelegate {
     
@@ -102,7 +103,12 @@ extension MiniStatementVC: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.configureCell(data[indexPath.row-1])
             cell.viewDocumentBtnTapped = {
-                print("View Doc")
+                guard let docId = self.data[indexPath.row-1].documentID, let docType = self.data[indexPath.row-1].documentTypeCode else { return }
+                Remote.shared.getDocumentUrl(type: docType, Id: docId) { data in
+                    if let url = data?.downloadpath {
+                        self.storeAndShare(withURLString: url)
+                    }
+                }
             }
             return cell
         }
@@ -167,5 +173,49 @@ extension MiniStatementVC {
     
     @objc func cancelDatePicker(){
         self.view.endEditing(true)
+    }
+}
+
+extension MiniStatementVC: UIDocumentInteractionControllerDelegate {
+    /// If presenting atop a navigation stack, provide the navigation controller in order to animate in a manner consistent with the rest of the platform
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        guard let navVC = self.navigationController else {
+            return self
+        }
+        return navVC
+    }
+}
+
+extension MiniStatementVC {
+    /// This function will set all the required properties, and then provide a preview for the document
+    func share(url: URL) {
+        let documentInteractionController = UIDocumentInteractionController()
+        documentInteractionController.delegate = self
+        documentInteractionController.url = url
+        documentInteractionController.uti = url.typeIdentifier ?? "public.data, public.content"
+        documentInteractionController.name = url.localizedName ?? url.lastPathComponent
+        documentInteractionController.presentPreview(animated: true)
+    }
+    
+    /// This function will store your document to some temporary URL and then provide sharing, copying, printing, saving options to the user
+    func storeAndShare(withURLString: String) {
+        guard let url = URL(string: withURLString) else { return }
+        SVProgressHUD.show()
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                SVProgressHUD.dismiss()
+                return }
+            let tmpURL = FileManager.default.temporaryDirectory
+                .appendingPathComponent(response?.suggestedFilename ?? "fileName.png")
+            do {
+                try data.write(to: tmpURL)
+            } catch {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.share(url: tmpURL)
+            }
+        }.resume()
     }
 }

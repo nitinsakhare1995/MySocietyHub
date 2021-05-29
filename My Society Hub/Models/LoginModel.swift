@@ -14,6 +14,7 @@ struct LoginModel : Mappable {
     var sessionid : String?
     var refreshcode : String?
     var attachmentID : Int?
+    var downloadpath : String?
 
     init?(map: Map) {
 
@@ -26,6 +27,7 @@ struct LoginModel : Mappable {
         sessionid <- map["sessionid"]
         refreshcode <- map["refreshcode"]
         attachmentID <- map["AttachmentID"]
+        downloadpath <- map["downloadpath"]
     }
 
 }

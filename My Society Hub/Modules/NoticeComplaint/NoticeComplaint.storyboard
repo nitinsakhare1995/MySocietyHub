@@ -1174,10 +1174,69 @@
             </objects>
             <point key="canvasLocation" x="3300.0000000000005" y="105.80357142857143"/>
         </scene>
+        <!--Notice Board Pop UpVC-->
+        <scene sceneID="oOq-2s-jAn">
+            <objects>
+                <viewController storyboardIdentifier="NoticeBoardPopUpVC" id="Ylo-Lv-XOl" customClass="NoticeBoardPopUpVC" customModule="My_Society_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5d4-1V-68e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-4I-EL6">
+                                <rect key="frame" x="24" y="248" width="366" height="400"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B4D-eb-HA6">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="400"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01w-2G-Qhw">
+                                        <rect key="frame" x="339" y="12" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="1sZ-LA-fgY"/>
+                                            <constraint firstAttribute="width" constant="15" id="WWd-Ff-QTF"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="cancel"/>
+                                        <connections>
+                                            <action selector="btnCancelTapped:" destination="Ylo-Lv-XOl" eventType="touchUpInside" id="O1W-9N-Ywl"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="B4D-eb-HA6" secondAttribute="bottom" id="8UO-qh-pCE"/>
+                                    <constraint firstItem="01w-2G-Qhw" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" constant="12" id="G7D-zI-ZSu"/>
+                                    <constraint firstAttribute="trailing" secondItem="01w-2G-Qhw" secondAttribute="trailing" constant="12" id="bZi-ib-8Oi"/>
+                                    <constraint firstAttribute="height" constant="400" id="cso-Vf-oLn"/>
+                                    <constraint firstAttribute="trailing" secondItem="B4D-eb-HA6" secondAttribute="trailing" id="s4v-xD-whQ"/>
+                                    <constraint firstItem="B4D-eb-HA6" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" id="yyb-Ka-28E"/>
+                                    <constraint firstItem="B4D-eb-HA6" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" id="z2w-tZ-3ig"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="g35-bM-oAk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FFg-4I-EL6" firstAttribute="leading" secondItem="g35-bM-oAk" secondAttribute="leading" constant="24" id="fmG-eI-NJc"/>
+                            <constraint firstItem="FFg-4I-EL6" firstAttribute="centerY" secondItem="5d4-1V-68e" secondAttribute="centerY" id="n8y-yW-nHO"/>
+                            <constraint firstItem="g35-bM-oAk" firstAttribute="trailing" secondItem="FFg-4I-EL6" secondAttribute="trailing" constant="24" id="pTy-Ww-OJQ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xfF-jA-in3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3920" y="106"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="Kjs-IT-ciU">
+            <size key="intrinsicContentSize" width="37" height="16"/>
+        </designable>
         <designable name="LGD-RB-QQ1">
-            <size key="intrinsicContentSize" width="30" height="28"/>
+            <size key="intrinsicContentSize" width="33" height="16"/>
         </designable>
     </designables>
     <resources>

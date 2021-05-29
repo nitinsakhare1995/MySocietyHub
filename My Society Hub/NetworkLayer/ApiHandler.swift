@@ -547,4 +547,30 @@ class Remote {
             }
     }
     
+    func getDocumentUrl(type: String, Id: String, completion: @escaping (LoginModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.getDocumentUrl(type: type, Id: Id))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<LoginModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
 }

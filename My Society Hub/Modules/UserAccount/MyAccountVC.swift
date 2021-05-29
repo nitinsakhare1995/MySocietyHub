@@ -11,16 +11,18 @@ class MyAccountVC: BaseViewController {
 
     @IBOutlet weak var userView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblEntityName: UILabel!
     
     private var accountList = [menuItemsModel]()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         userView.dropShadow()
         setupAccountList()
         registerNib()
+        getUserData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +33,13 @@ class MyAccountVC: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.title = ""
+    }
+    
+    func getUserData(){
+        Remote.shared.getUserData { data in
+            self.lblName.text = data?.table?.first?.customerName
+            self.lblEntityName.text = data?.table?.first?.entityType
+        }
     }
     
     func registerNib(){

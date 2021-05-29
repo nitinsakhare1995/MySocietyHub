@@ -23,7 +23,7 @@ class LoginVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        tiltView.rotate(degrees: -45)
+//                tiltView.rotate(degrees: -45)
         
         changeImageColors()
     }

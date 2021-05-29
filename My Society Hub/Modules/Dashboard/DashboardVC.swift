@@ -167,7 +167,12 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
                     print("DOWNLOAD")
                 }
                 cell.readMoreBtnTapped = {
-                    print("READ MORE")
+                    if let popupViewController = UIStoryboard(name: Storyboard.noticeComplaint.rawValue, bundle: nil).instantiateViewController(withIdentifier: "NoticeBoardPopUpVC") as? NoticeBoardPopUpVC {
+                        popupViewController.modalPresentationStyle = .custom
+                        popupViewController.modalTransitionStyle = .crossDissolve
+//                        popupViewController.imgURL = data?.downloadPath
+                        self.present(popupViewController, animated: true)
+                    }
                 }
                 return cell
             }

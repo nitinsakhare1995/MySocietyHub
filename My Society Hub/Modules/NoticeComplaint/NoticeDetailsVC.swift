@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class NoticeDetailsVC: BaseViewController {
-
+    
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var lblNoticeSubject: UILabel!
     @IBOutlet weak var lblNoticeDescription: UILabel!
@@ -20,7 +20,12 @@ class NoticeDetailsVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NoticeDetailsVC.openImage))
+        imgAttachment.addGestureRecognizer(tap)
+        imgAttachment.isUserInteractionEnabled = true
+        
         btnClose.setImage(#imageLiteral(resourceName: "cancel").maskWithColor(color: .blueBorderColor()), for: .normal)
         
         let imgURL = URL(string: data?.downloadPath ?? "")
@@ -35,9 +40,18 @@ class NoticeDetailsVC: BaseViewController {
         
     }
     
+    @objc func openImage() {
+        if let popupViewController = UIStoryboard(name: Storyboard.userAccount.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ImagePopUpVC") as? ImagePopUpVC {
+            popupViewController.modalPresentationStyle = .custom
+            popupViewController.modalTransitionStyle = .crossDissolve
+            popupViewController.imgURL = data?.downloadPath
+            self.present(popupViewController, animated: true)
+        }
+    }
+    
     @IBAction func btnCloseTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
- 
+    
 }

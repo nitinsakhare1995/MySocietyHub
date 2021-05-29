@@ -35,6 +35,10 @@ class ComplaintDetailsVC: BaseViewController {
         
         setUIData()
         
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ComplaintDetailsVC.openImage))
+        imgAttachment.addGestureRecognizer(tap)
+        imgAttachment.isUserInteractionEnabled = true
+        
     }
     
     func setUIData(){
@@ -61,6 +65,15 @@ class ComplaintDetailsVC: BaseViewController {
             txtFieldHeight.constant = 0
             btnResolvedHeight.constant = 0
             openStatusViewLine.isHidden = true
+        }
+    }
+    
+    @objc func openImage() {
+        if let popupViewController = UIStoryboard(name: Storyboard.userAccount.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ImagePopUpVC") as? ImagePopUpVC {
+            popupViewController.modalPresentationStyle = .custom
+            popupViewController.modalTransitionStyle = .crossDissolve
+            popupViewController.imgURL = data?.downloadPath
+            self.present(popupViewController, animated: true)
         }
     }
     

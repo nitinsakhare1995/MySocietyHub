@@ -49,10 +49,11 @@ public enum APIRequest: URLRequestConvertible {
     case addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int? = nil)
     case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String)
     case makePayment(amount: Int, firstname: String, email: String, phone: String)
+    case getDocumentUrl(type: String, Id: String)
     
     var method: HTTPMethod {
         switch self {
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList, .getDocumentUrl:
             return .get
         default:
             return .post
@@ -101,6 +102,8 @@ public enum APIRequest: URLRequestConvertible {
             return "business/ComplaintRegistry"
         case .makePayment:
             return "payment/requesturl"
+        case .getDocumentUrl(let type, let Id):
+            return "report/GetReportDocument?documenttype=\(type)&documentid=\(Id)&keycode=True"
         }
     }
     
@@ -161,7 +164,7 @@ public enum APIRequest: URLRequestConvertible {
         request.timeoutInterval = TimeInterval(10 * 1000)
         print("URL Requested is \(request), Parameters are \(parameters) and Headers are \(headers)")
         switch self{
-        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList:
+        case .getUserData, .getSignatoryDetails, .getBillSlab, .getNoticeList, .getComplaintList, .getNoticeType, .getComplaintNature, .getComplaintType, .getComplaintCategory, .getMiniStatement, .getAds, .getBanners, .getNoticeBoardList, .getDocumentUrl:
             return try URLEncoding.default.encode(request, with: parameters)
         default:
             return try JSONEncoding.default.encode(request, with: parameters)
