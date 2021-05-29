@@ -21,7 +21,8 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
     
     var noticeTypeDropdown = DropDown()
     var noticeTypelist = [NoticeTableModel]()
-    
+    var attachmentID: Int?
+    var selectedNoticeExpiryDate: String?
     let datePicker = UIDatePicker()
     
     var selectedNoticeId: String?
@@ -29,8 +30,9 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        datePicker.maximumDate = Date()
+        datePicker.maximumDate = Calendar.current.date(byAdding: .year, value: 16, to: Date())
         
+        noticeNameTF.setLeftPaddingPoints(12)
         noticeExpiryTF.delegate = self
         noticeExpiryTF.tintColor = .clear
         
@@ -59,7 +61,7 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
     
     @IBAction func btnSubmitNoticeTapped(_ sender: UIButton) {
         if validateTextFields(){
-            print("API here")
+            addNewNotice()
         }
     }
     
@@ -68,8 +70,26 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
         picker.modalPresentationStyle = .overCurrentContext
         self.present(picker, animated: true, completion: nil)
         picker.didSelectImageAttachment = { attachment in
-            self.imgAttachment.image = attachment.image
-            //            self.uploadProfileImageOnServer(image: attachment.image)
+            self.uploadFileOnServer(image: attachment.image)
+        }
+    }
+    
+    func uploadFileOnServer(image: UIImage){
+        Remote.shared.uploadFileOnServer(image: image){ details in
+            if let id = details?.attachmentID {
+                self.imgAttachment.image = image
+                self.attachmentID = id
+            }else {
+                showSnackBar(with: LocalizedString.apiError, duration: .middle)
+            }
+        }
+    }
+    
+    func addNewNotice(){
+        guard let noticeTypeID = self.selectedNoticeId, let noticeSubject = noticeNameTF.text, let noticeDescription = descriptionTF.text, let expiryDate = self.selectedNoticeExpiryDate else { return }
+        Remote.shared.addNewNotice(noticeTypeID: noticeTypeID, noticeSubject: noticeSubject, noticeDescription: noticeDescription, noticeDate: Date().string(format: "yyyy-MM-dd"), expiryDate: expiryDate, attachmentID: self.attachmentID) { data in
+            showSnackBar(with: data?.table?.first?.message ?? "", duration: .middle)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -92,9 +112,7 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         noticeExpiryTF.text = formatter.string(from: datePicker.date)
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "yyyy-MM-dd"
-        //        self.selectedDate = formatter1.string(from: datePicker.date)
+        self.selectedNoticeExpiryDate = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
@@ -122,7 +140,7 @@ class NewNoticeVC: BaseViewController, UITextFieldDelegate {
         }
         return true
     }
-
+    
 }
 
 extension NewNoticeVC {

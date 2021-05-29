@@ -53,6 +53,8 @@ class DashboardVC: UIViewController {
         getAdsList()
         getBannersList()
         getNoticeList()
+        
+        tabBarItem.tag = TabbarItemTag.secondViewConroller.rawValue
     }
     
     func registerNib() {
@@ -92,6 +94,8 @@ class DashboardVC: UIViewController {
             self.userData = data?.table?.first
             self.lblUserName.text = data?.table?.first?.customerName
             self.lblSocietyName.text = data?.table?.first?.locationName
+            UserDefaults.standard.setValue(data?.table?.first?.customerID, forKey: DefaultKeys.UDUserID)
+
             DispatchQueue.main.async {
                 self.noticeCollectionView.reloadData()
             }

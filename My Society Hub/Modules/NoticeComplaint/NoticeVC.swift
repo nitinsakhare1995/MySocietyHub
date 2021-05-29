@@ -30,13 +30,13 @@ class NoticeVC: BaseViewController {
         collectionView?.contentInsetAdjustmentBehavior = .always
         addBarbuttonItem()
         registerNib()
-        getNoticeList()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Notice List"
+        getNoticeList()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,8 +45,16 @@ class NoticeVC: BaseViewController {
     }
     
     func addBarbuttonItem(){
-        let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "add"), style: .plain, target: self, action: #selector(addNewNotice))//Change your function name and image name here
-        self.navigationItem.rightBarButtonItem = addButton
+        let addBtn = UIButton(type: .custom)
+        addBtn.frame = CGRect(x: 0.0, y: 0.0, width: 30, height: 30)
+        addBtn.setImage(#imageLiteral(resourceName: "add").maskWithColor(color: .white), for: .normal)
+        addBtn.addTarget(self, action: #selector(addNewNotice), for: .touchUpInside)
+        let addBarItem = UIBarButtonItem(customView: addBtn)
+        let currWidth = addBarItem.customView?.widthAnchor.constraint(equalToConstant: 25)
+        currWidth?.isActive = true
+        let currHeight = addBarItem.customView?.heightAnchor.constraint(equalToConstant: 25)
+        currHeight?.isActive = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addBtn)
     }
     
     func registerNib(){

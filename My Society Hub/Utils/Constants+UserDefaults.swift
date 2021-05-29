@@ -11,6 +11,7 @@ struct DefaultKeys {
     static let UDUserLoggedIn = "isUserLoggedIn"
     static let UDAccessToken = "accessToken"
     static let UDlaunchedBefore = "launchedBefore"
+    static let UDUserID = "userID"
 }
 
 

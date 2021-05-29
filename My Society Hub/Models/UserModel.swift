@@ -10,7 +10,7 @@ import ObjectMapper
 
 struct UserModel : Mappable {
     var table : [UserTableModel]?
-
+    var url : String?
     init?(map: Map) {
 
     }
@@ -18,6 +18,7 @@ struct UserModel : Mappable {
     mutating func mapping(map: Map) {
 
         table <- map["Table"]
+        url <- map["Url"]
     }
 
 }
@@ -61,6 +62,7 @@ struct UserTableModel : Mappable {
     var isAdministrator : Bool?
     var path : String?
     var link : String?
+    var message : String?
 
     init?(map: Map) {
 
@@ -106,6 +108,7 @@ struct UserTableModel : Mappable {
         isAdministrator <- map["IsAdministrator"]
         path <- map["Path"]
         link <- map["Link"]
+        message <- map["Message"]
     }
 
 }

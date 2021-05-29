@@ -431,4 +431,120 @@ class Remote {
             }
     }
     
+    func uploadFileOnServer(image: UIImage, completion: @escaping (LoginModel?) -> Void){
+        
+        let url = AppSettings.baseUrl + APIRequest.uploadFileOnServer.path
+        let imageData = image.jpegData(compressionQuality: 1)
+        let headers: HTTPHeaders = ["Authorization": Constants.accessToken.rawValue]
+        SVProgressHUD.show()
+        guard let imgData = imageData else { return }
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(imgData, withName: "UploadedImage",fileName: "file.jpg", mimeType: "image/jpg")
+            
+        },
+        to: url, method:.post,
+        headers:headers)
+        { (result) in
+            
+            switch result {
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (progress) in
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                
+                upload.responseJSON { response in
+                    SVProgressHUD.dismiss()
+                    if response.result.value != nil{
+                        print(response.result.value!)
+                        let apiResponse = Mapper<LoginModel>().map(JSONObject: response.result.value)
+                        completion(apiResponse)
+                    }
+                }
+                
+            case .failure(let encodingError):
+                print(encodingError)
+                
+            }
+        }
+    }
+    
+    func addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int? = nil, completion: @escaping (UserModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.addNewNotice(noticeTypeID: noticeTypeID, noticeSubject: noticeSubject, noticeDescription: noticeDescription, noticeDate: noticeDate, expiryDate: expiryDate, attachmentID: attachmentID))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<UserModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func addNewComplaint(natureID: String, complaintTypeID: String, categoryID: String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String, completion: @escaping (UserModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.addNewComplaint(natureID: natureID, complaintTypeID: complaintTypeID, categoryID: categoryID, isUrgent: isUrgent, description: description, attachmentID: attachmentID, onBehalfCustomerID: onBehalfCustomerID))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<UserModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
+    func makePayment(amount: Int, firstname: String, email: String, phone: String, completion: @escaping (UserModel?) -> Void){
+        SVProgressHUD.show()
+        Alamofire.request(APIRequest.makePayment(amount: amount, firstname: firstname, email: email, phone: phone))
+            .responseJSON { response in
+                if response.response?.statusCode == 200 {
+                    SVProgressHUD.dismiss()
+                    switch(response.result) {
+                    case .success(_):
+                        if response.result.value != nil{
+                            print(response.result.value!)
+                            let apiResponse = Mapper<UserModel>().map(JSONObject: response.result.value)
+                            completion(apiResponse)
+                        }
+                        break
+                    case .failure(_):
+                        showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                        print(response.result.error!)
+                        break
+                    }
+                }else{
+                    showSnackBar(with: LocalizedString.apiError, duration: .middle)
+                    SVProgressHUD.dismiss()
+                }
+            }
+    }
+    
 }

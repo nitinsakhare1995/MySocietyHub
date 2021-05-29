@@ -60,6 +60,8 @@
 		8781D02B265FC03500682C10 /* MiniStatementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8781D029265FC03500682C10 /* MiniStatementCell.xib */; };
 		8781D02D265FC63800682C10 /* MiniStatementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8781D02C265FC63800682C10 /* MiniStatementModel.swift */; };
 		8793C60E265E7FDF002ABCFB /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8793C60D265E7FDF002ABCFB /* Date+Extension.swift */; };
+		87971155266234A8004A933A /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87971154266234A8004A933A /* ProfileVC.swift */; };
+		8797115726624535004A933A /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8797115626624535004A933A /* WebViewVC.swift */; };
 		87A7EE662657847000562DF8 /* Constants+Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE652657847000562DF8 /* Constants+Identifiers.swift */; };
 		87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */; };
 		87A7EE6A265784C100562DF8 /* StartAppPagerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */; };
@@ -168,6 +170,8 @@
 		8781D029265FC03500682C10 /* MiniStatementCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiniStatementCell.xib; sourceTree = "<group>"; };
 		8781D02C265FC63800682C10 /* MiniStatementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStatementModel.swift; sourceTree = "<group>"; };
 		8793C60D265E7FDF002ABCFB /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		87971154266234A8004A933A /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		8797115626624535004A933A /* WebViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		87A7EE652657847000562DF8 /* Constants+Identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constants+Identifiers.swift"; sourceTree = "<group>"; };
 		87A7EE67265784C100562DF8 /* StartAppPagerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppPagerCell.swift; sourceTree = "<group>"; };
 		87A7EE68265784C100562DF8 /* StartAppPagerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartAppPagerCell.xib; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 				87D3F8D8265A4E6C00064F19 /* PayNowVC.swift */,
 				87272847265A71260096499F /* EmergencyVC.swift */,
 				8727284F265A73B40096499F /* EmergencyNumbersVC.swift */,
+				87971154266234A8004A933A /* ProfileVC.swift */,
+				8797115626624535004A933A /* WebViewVC.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -845,6 +851,7 @@
 				87A7EE69265784C100562DF8 /* StartAppPagerCell.swift in Sources */,
 				87A7EE80265795AC00562DF8 /* Declaration.swift in Sources */,
 				87DE5CF5265501D7002FAF59 /* UIColor+Extension.swift in Sources */,
+				8797115726624535004A933A /* WebViewVC.swift in Sources */,
 				87272850265A73B40096499F /* EmergencyNumbersVC.swift in Sources */,
 				8724FE18265A6A7D0032BB07 /* BillSlabCell.swift in Sources */,
 				87D71726265E240600CB774D /* UIImage+Extension.swift in Sources */,
@@ -859,6 +866,7 @@
 				877951222659853F002860F9 /* ComplaintVC.swift in Sources */,
 				8781D02D265FC63800682C10 /* MiniStatementModel.swift in Sources */,
 				8781D023265FC00900682C10 /* MiniStatementVC.swift in Sources */,
+				87971155266234A8004A933A /* ProfileVC.swift in Sources */,
 				87272846265A6F670096499F /* SignatoryDetailsVC.swift in Sources */,
 				877F933A26596F3A00826C36 /* DashboardVC.swift in Sources */,
 				87D71724265E197F00CB774D /* LoginModel.swift in Sources */,

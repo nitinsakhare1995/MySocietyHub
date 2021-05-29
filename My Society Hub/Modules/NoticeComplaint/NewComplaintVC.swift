@@ -35,6 +35,8 @@ class NewComplaintVC: BaseViewController {
     
     var isComplaintUrgent: Bool?
     
+    var attachmentID: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -77,7 +79,7 @@ class NewComplaintVC: BaseViewController {
     
     @IBAction func btnRaiseComplaintTapped(_ sender: UIButton) {
         if validateTextFields(){
-            print("Call APi")
+            addNewComplaint()
         }
     }
     
@@ -87,7 +89,26 @@ class NewComplaintVC: BaseViewController {
         self.present(picker, animated: true, completion: nil)
         picker.didSelectImageAttachment = { attachment in
             self.imgAttachment.image = attachment.image
-            //            self.uploadProfileImageOnServer(image: attachment.image)
+            self.uploadFileOnServer(image: attachment.image)
+        }
+    }
+    
+    func uploadFileOnServer(image: UIImage){
+        Remote.shared.uploadFileOnServer(image: image){ details in
+            if let id = details?.attachmentID {
+                self.imgAttachment.image = image
+                self.attachmentID = id
+            }else {
+                showSnackBar(with: LocalizedString.apiError, duration: .middle)
+            }
+        }
+    }
+    
+    func addNewComplaint(){
+        guard let natureID = self.selectedComplaintNatureId, let complaintTypeID = self.selectedcomplaintTypeId, let categoryID = self.selectedcomplaintCategoryId, let isUrgent = self.isComplaintUrgent, let description = self.descriptionTF.text, let onBehalfCustomerID = UserDefaults.standard.string(forKey: DefaultKeys.UDUserID) else { return }
+        Remote.shared.addNewComplaint(natureID: natureID, complaintTypeID: complaintTypeID, categoryID: categoryID, isUrgent: isUrgent, description: description, attachmentID: self.attachmentID, onBehalfCustomerID: onBehalfCustomerID) { data in
+            showSnackBar(with: data?.table?.first?.message ?? "", duration: .middle)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

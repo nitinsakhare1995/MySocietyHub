@@ -45,6 +45,10 @@ public enum APIRequest: URLRequestConvertible {
     case getAds
     case getBanners
     case getNoticeBoardList
+    case uploadFileOnServer
+    case addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int? = nil)
+    case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String)
+    case makePayment(amount: Int, firstname: String, email: String, phone: String)
     
     var method: HTTPMethod {
         switch self {
@@ -89,6 +93,14 @@ public enum APIRequest: URLRequestConvertible {
             return "business/Banners?Type=Banner"
         case .getNoticeBoardList:
             return "business/WidgetData?Code=DNB"
+        case .uploadFileOnServer:
+            return "Upload/abc?keycode=True"
+        case .addNewNotice:
+            return "business/NoticeBoard"
+        case .addNewComplaint:
+            return "business/ComplaintRegistry"
+        case .makePayment:
+            return "payment/requesturl"
         }
     }
     
@@ -104,6 +116,30 @@ public enum APIRequest: URLRequestConvertible {
                     "Password": password,
                     "Enc": enc,
                     "OTP": otp]
+        case .addNewNotice(let noticeTypeID, let noticeSubject, let noticeDescription, let noticeDate, let expiryDate, let attachmentID):
+            return ["NoticeTypeID": noticeTypeID,
+                    "NoticeSubject": noticeSubject,
+                    "Description": noticeDescription,
+                    "NoticeDate": noticeDate,
+                    "ExpiryDate": expiryDate,
+                    "AttachmentID": attachmentID,
+                    "IsActive": true]
+        case.addNewComplaint(let natureID, let complaintTypeID, let categoryID, let isUrgent, let description, let attachmentID, let onBehalfCustomerID):
+            return ["NatureID": natureID,
+                    "ComplaintTypeID": complaintTypeID,
+                    "CategoryID": categoryID,
+                    "IsUrgent": isUrgent,
+                    "Description": description,
+                    "AttachmentID": attachmentID,
+                    "OnBehalfCustomerID": onBehalfCustomerID,
+                    "IsActive": true
+            ]
+        case .makePayment(let amount, let firstname, let email, let phone):
+            return ["amount": amount,
+                    "firstname": firstname,
+                    "email": email,
+                    "phone": phone,
+                    "iagree": true]
         default:
             return [:]
         }
