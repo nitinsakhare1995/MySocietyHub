@@ -11,6 +11,7 @@ class ImagePopUpVC: UIViewController {
 
     @IBOutlet weak var imageShow: UIImageView!
     @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var popUpView: UIView!
     
     var imgURL: String?
     
@@ -24,7 +25,14 @@ class ImagePopUpVC: UIViewController {
         imageShow.kf.setImage(with: URL(string: self.imgURL ?? ""))
         
         
+        
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            let touch = touches.first
+            if touch?.view != self.popUpView
+            { self.dismiss(animated: true, completion: nil) }
+        }
     
 
     @IBAction func btnCancelTapped(_ sender: UIButton) {

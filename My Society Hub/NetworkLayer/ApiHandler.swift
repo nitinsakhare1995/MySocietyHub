@@ -495,7 +495,7 @@ class Remote {
             }
     }
     
-    func addNewComplaint(natureID: String, complaintTypeID: String, categoryID: String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String, completion: @escaping (UserModel?) -> Void){
+    func addNewComplaint(natureID: String, complaintTypeID: String, categoryID: String, isUrgent: Bool, description: String, attachmentID: Int, onBehalfCustomerID: String, completion: @escaping (UserModel?) -> Void){
         SVProgressHUD.show()
         Alamofire.request(APIRequest.addNewComplaint(natureID: natureID, complaintTypeID: complaintTypeID, categoryID: categoryID, isUrgent: isUrgent, description: description, attachmentID: attachmentID, onBehalfCustomerID: onBehalfCustomerID))
             .responseJSON { response in

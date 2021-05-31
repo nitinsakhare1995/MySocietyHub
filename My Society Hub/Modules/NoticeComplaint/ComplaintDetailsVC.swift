@@ -70,11 +70,13 @@ class ComplaintDetailsVC: BaseViewController {
     }
     
     @objc func openImage() {
-        if let popupViewController = UIStoryboard(name: Storyboard.userAccount.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ImagePopUpVC") as? ImagePopUpVC {
-            popupViewController.modalPresentationStyle = .custom
-            popupViewController.modalTransitionStyle = .crossDissolve
-            popupViewController.imgURL = data?.downloadPath
-            self.present(popupViewController, animated: true)
+        if data?.downloadPath != nil {
+            if let popupViewController = UIStoryboard(name: Storyboard.userAccount.rawValue, bundle: nil).instantiateViewController(withIdentifier: "ImagePopUpVC") as? ImagePopUpVC {
+                popupViewController.modalPresentationStyle = .custom
+                popupViewController.modalTransitionStyle = .crossDissolve
+                popupViewController.imgURL = data?.downloadPath
+                self.present(popupViewController, animated: true)
+            }
         }
     }
     

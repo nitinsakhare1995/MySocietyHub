@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class DashboardVC: UIViewController {
     
@@ -165,13 +166,16 @@ extension DashboardVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 let cell = noticeCollectionView.dequeueReusableCell(withReuseIdentifier: AppIdentifiers.noticeBoardCell, for: indexPath) as! NoticeBoardCell
                 cell.configureCell(self.noticeList[indexPath.item - 1])
                 cell.downloadBtnTapped = {
-                    print("DOWNLOAD")
+                    if let url = self.noticeList[indexPath.item - 1].downloadPath {
+                        self.storeAndShare(withURLString: url)
+                    }
                 }
                 cell.readMoreBtnTapped = {
                     if let popupViewController = UIStoryboard(name: Storyboard.noticeComplaint.rawValue, bundle: nil).instantiateViewController(withIdentifier: "NoticeBoardPopUpVC") as? NoticeBoardPopUpVC {
                         popupViewController.modalPresentationStyle = .custom
                         popupViewController.modalTransitionStyle = .crossDissolve
-//                        popupViewController.imgURL = data?.downloadPath
+                        popupViewController.data = self.noticeList[indexPath.item - 1]
+                        popupViewController.controller = self
                         self.present(popupViewController, animated: true)
                     }
                 }
@@ -307,4 +311,50 @@ extension DashboardVC {
     
     }
     
+}
+
+extension DashboardVC: UIDocumentInteractionControllerDelegate {
+    /// If presenting atop a navigation stack, provide the navigation controller in order to animate in a manner consistent with the rest of the platform
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        guard let navVC = self.navigationController else {
+            return self
+        }
+        navVC.navigationBar.tintColor = .darkGray
+        navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        return navVC
+    }
+}
+
+extension DashboardVC {
+    /// This function will set all the required properties, and then provide a preview for the document
+    func share(url: URL) {
+        let documentInteractionController = UIDocumentInteractionController()
+        documentInteractionController.delegate = self
+        documentInteractionController.url = url
+        documentInteractionController.uti = url.typeIdentifier ?? "public.data, public.content"
+        documentInteractionController.name = url.localizedName ?? url.lastPathComponent
+        documentInteractionController.presentPreview(animated: true)
+    }
+    
+    /// This function will store your document to some temporary URL and then provide sharing, copying, printing, saving options to the user
+    func storeAndShare(withURLString: String) {
+        guard let url = URL(string: withURLString) else { return }
+        SVProgressHUD.show()
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                SVProgressHUD.dismiss()
+                return }
+            let tmpURL = FileManager.default.temporaryDirectory
+                .appendingPathComponent(response?.suggestedFilename ?? "fileName.png")
+            do {
+                try data.write(to: tmpURL)
+            } catch {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
+                self.share(url: tmpURL)
+            }
+        }.resume()
+    }
 }

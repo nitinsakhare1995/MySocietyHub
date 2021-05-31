@@ -126,7 +126,7 @@
     <resources>
         <image name="download" width="64" height="64"/>
         <namedColor name="appOrangeColor">
-            <color red="1" green="0.27099999785423279" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94117647058823528" green="0.35294117647058826" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -63,6 +63,7 @@ struct UserTableModel : Mappable {
     var path : String?
     var link : String?
     var message : String?
+    var noticeID : String?
 
     init?(map: Map) {
 
@@ -109,6 +110,7 @@ struct UserTableModel : Mappable {
         path <- map["Path"]
         link <- map["Link"]
         message <- map["Message"]
+        noticeID <- map["NoticeID"]
     }
 
 }

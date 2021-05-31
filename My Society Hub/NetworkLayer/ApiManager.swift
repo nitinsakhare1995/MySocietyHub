@@ -47,7 +47,7 @@ public enum APIRequest: URLRequestConvertible {
     case getNoticeBoardList
     case uploadFileOnServer
     case addNewNotice(noticeTypeID: String, noticeSubject: String, noticeDescription: String, noticeDate: String, expiryDate: String, attachmentID: Int)
-    case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int? = nil, onBehalfCustomerID: String)
+    case addNewComplaint(natureID: String, complaintTypeID: String, categoryID:String, isUrgent: Bool, description: String, attachmentID: Int, onBehalfCustomerID: String)
     case makePayment(amount: Int, firstname: String, email: String, phone: String)
     case getDocumentUrl(type: String, Id: String)
     case closeComplaint(documentID: String, remarks: String)
@@ -98,14 +98,14 @@ public enum APIRequest: URLRequestConvertible {
         case .uploadFileOnServer:
             return "Upload/abc?keycode=True"
         case .addNewNotice:
-            return "business/NoticeBoard"
+            return "business1/NoticeBoard"
         case .addNewComplaint:
-            return "business/ComplaintRegistry"
+            return "business1/ComplaintRegistry"
         case .makePayment:
             return "payment/requesturl"
         case .getDocumentUrl(let type, let Id):
             return "report/GetReportDocument?documenttype=\(type)&documentid=\(Id)&keycode=True"
-        case .closeComplaint(let documentID, let remarks):
+        case .closeComplaint:
             return "business1/UpdateDocumentStatus"
         }
     }

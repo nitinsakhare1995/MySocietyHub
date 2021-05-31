@@ -40,11 +40,15 @@ class MiniStatementVC: BaseViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Mini Statement"
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.title = ""
+        self.navigationController?.navigationBar.tintColor = .gray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
     }
     
     func setupTextFieldAndDateView(){
@@ -182,6 +186,8 @@ extension MiniStatementVC: UIDocumentInteractionControllerDelegate {
         guard let navVC = self.navigationController else {
             return self
         }
+        navVC.navigationBar.tintColor = .darkGray
+        navVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         return navVC
     }
 }

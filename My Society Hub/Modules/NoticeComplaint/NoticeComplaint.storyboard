@@ -1183,32 +1183,70 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFg-4I-EL6">
-                                <rect key="frame" x="24" y="248" width="366" height="400"/>
+                                <rect key="frame" x="24" y="298" width="366" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B4D-eb-HA6">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="400"/>
-                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU5-5z-7JD">
+                                        <rect key="frame" x="20" y="263" width="326" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N81-GU-Wpk">
+                                        <rect key="frame" x="20" y="54.5" width="326" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNg-ep-SJx">
+                                        <rect key="frame" x="20" y="20" width="306" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0f-4G-G8Q">
+                                        <rect key="frame" x="20" y="231" width="326" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aez-EB-oqE">
+                                        <rect key="frame" x="20" y="87.5" width="326" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01w-2G-Qhw">
-                                        <rect key="frame" x="339" y="12" width="15" height="15"/>
+                                        <rect key="frame" x="334" y="19" width="20" height="20"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="15" id="1sZ-LA-fgY"/>
-                                            <constraint firstAttribute="width" constant="15" id="WWd-Ff-QTF"/>
+                                            <constraint firstAttribute="height" constant="20" id="1sZ-LA-fgY"/>
+                                            <constraint firstAttribute="width" constant="20" id="WWd-Ff-QTF"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="cancel"/>
+                                        <state key="normal" image="download"/>
                                         <connections>
-                                            <action selector="btnCancelTapped:" destination="Ylo-Lv-XOl" eventType="touchUpInside" id="O1W-9N-Ywl"/>
+                                            <action selector="btnDownloadTapped:" destination="Ylo-Lv-XOl" eventType="touchUpInside" id="RCK-YS-Bdl"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="B4D-eb-HA6" secondAttribute="bottom" id="8UO-qh-pCE"/>
-                                    <constraint firstItem="01w-2G-Qhw" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" constant="12" id="G7D-zI-ZSu"/>
+                                    <constraint firstAttribute="trailing" secondItem="Aez-EB-oqE" secondAttribute="trailing" constant="20" id="4pg-RZ-H8d"/>
+                                    <constraint firstItem="O0f-4G-G8Q" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" constant="20" id="7pw-nx-kLx"/>
+                                    <constraint firstItem="N81-GU-Wpk" firstAttribute="top" secondItem="oNg-ep-SJx" secondAttribute="bottom" constant="15" id="Eje-0a-9zo"/>
+                                    <constraint firstItem="01w-2G-Qhw" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" constant="19" id="G7D-zI-ZSu"/>
+                                    <constraint firstItem="N81-GU-Wpk" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" constant="20" id="GVf-gI-HDb"/>
+                                    <constraint firstItem="Aez-EB-oqE" firstAttribute="top" secondItem="N81-GU-Wpk" secondAttribute="bottom" constant="15" id="M9r-6O-xL2"/>
+                                    <constraint firstAttribute="trailing" secondItem="O0f-4G-G8Q" secondAttribute="trailing" constant="20" id="RS8-Hr-OQh"/>
+                                    <constraint firstAttribute="bottom" secondItem="cU5-5z-7JD" secondAttribute="bottom" constant="20" id="T6c-A1-omR"/>
+                                    <constraint firstItem="01w-2G-Qhw" firstAttribute="leading" secondItem="oNg-ep-SJx" secondAttribute="trailing" constant="8" id="Td3-14-Gdw"/>
+                                    <constraint firstItem="oNg-ep-SJx" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" constant="20" id="XMM-fI-ai4"/>
+                                    <constraint firstItem="cU5-5z-7JD" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" constant="20" id="ZBz-er-7DQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="N81-GU-Wpk" secondAttribute="trailing" constant="20" id="aQg-vR-wbs"/>
                                     <constraint firstAttribute="trailing" secondItem="01w-2G-Qhw" secondAttribute="trailing" constant="12" id="bZi-ib-8Oi"/>
-                                    <constraint firstAttribute="height" constant="400" id="cso-Vf-oLn"/>
-                                    <constraint firstAttribute="trailing" secondItem="B4D-eb-HA6" secondAttribute="trailing" id="s4v-xD-whQ"/>
-                                    <constraint firstItem="B4D-eb-HA6" firstAttribute="top" secondItem="FFg-4I-EL6" secondAttribute="top" id="yyb-Ka-28E"/>
-                                    <constraint firstItem="B4D-eb-HA6" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" id="z2w-tZ-3ig"/>
+                                    <constraint firstItem="cU5-5z-7JD" firstAttribute="top" secondItem="O0f-4G-G8Q" secondAttribute="bottom" constant="15" id="c37-hD-f0S"/>
+                                    <constraint firstAttribute="height" constant="300" id="cso-Vf-oLn"/>
+                                    <constraint firstItem="oNg-ep-SJx" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" constant="20" id="oF5-RR-k6W"/>
+                                    <constraint firstAttribute="trailing" secondItem="cU5-5z-7JD" secondAttribute="trailing" constant="20" id="t9V-B8-SEz"/>
+                                    <constraint firstItem="Aez-EB-oqE" firstAttribute="leading" secondItem="FFg-4I-EL6" secondAttribute="leading" constant="20" id="wE2-bI-4E1"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1225,10 +1263,19 @@
                             <constraint firstItem="g35-bM-oAk" firstAttribute="trailing" secondItem="FFg-4I-EL6" secondAttribute="trailing" constant="24" id="pTy-Ww-OJQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnDownload" destination="01w-2G-Qhw" id="m3U-MN-oLS"/>
+                        <outlet property="lblExpiryDate" destination="cU5-5z-7JD" id="xXR-TQ-vFo"/>
+                        <outlet property="lblNoticeDare" destination="O0f-4G-G8Q" id="TT6-eI-w4X"/>
+                        <outlet property="lblNoticeDescription" destination="Aez-EB-oqE" id="Jsp-4h-Fl5"/>
+                        <outlet property="lblNoticeSubject" destination="N81-GU-Wpk" id="ppI-sD-VyY"/>
+                        <outlet property="lblNoticeType" destination="oNg-ep-SJx" id="uIV-kn-yfh"/>
+                        <outlet property="popUpView" destination="FFg-4I-EL6" id="xfA-Rh-Nwj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfF-jA-in3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3920" y="106"/>
+            <point key="canvasLocation" x="3918.8405797101454" y="105.80357142857143"/>
         </scene>
     </scenes>
     <designables>
@@ -1244,6 +1291,7 @@
         <image name="calendar" width="70" height="68"/>
         <image name="cancel" width="46" height="46"/>
         <image name="down_arrow" width="44" height="25"/>
+        <image name="download" width="64" height="64"/>
         <image name="man" width="512" height="512"/>
         <namedColor name="appOrangeColor">
             <color red="0.94117647058823528" green="0.35294117647058826" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

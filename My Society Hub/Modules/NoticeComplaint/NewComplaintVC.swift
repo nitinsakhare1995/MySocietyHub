@@ -106,7 +106,7 @@ class NewComplaintVC: BaseViewController {
     
     func addNewComplaint(){
         guard let natureID = self.selectedComplaintNatureId, let complaintTypeID = self.selectedcomplaintTypeId, let categoryID = self.selectedcomplaintCategoryId, let isUrgent = self.isComplaintUrgent, let description = self.descriptionTF.text, let onBehalfCustomerID = UserDefaults.standard.string(forKey: DefaultKeys.UDUserID) else { return }
-        Remote.shared.addNewComplaint(natureID: natureID, complaintTypeID: complaintTypeID, categoryID: categoryID, isUrgent: isUrgent, description: description, attachmentID: self.attachmentID, onBehalfCustomerID: onBehalfCustomerID) { data in
+        Remote.shared.addNewComplaint(natureID: natureID, complaintTypeID: complaintTypeID, categoryID: categoryID, isUrgent: isUrgent, description: description, attachmentID: self.attachmentID ?? 0, onBehalfCustomerID: onBehalfCustomerID) { data in
             showSnackBar(with: data?.table?.first?.message ?? "", duration: .middle)
             self.navigationController?.popViewController(animated: true)
         }
